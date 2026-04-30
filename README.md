@@ -1,2 +1,2 @@
-# javiergvela.github.io
+# LilyJavier.github.io
 Wedding Lily &amp; Javi
