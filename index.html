@@ -114,55 +114,56 @@
 </footer>
 
 </body>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 <script>
-const SUPABASE_URL = "TU_URL";
-const SUPABASE_KEY = "TU_KEY";
+const supabase = window.supabase.createClient("TU_URL","TU_KEY");
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-// 🎵 cargar canciones
-async function loadSongs() {
-    const { data } = await supabase.from("songs").select("*").order("created_at", { ascending: false });
-
-    const list = document.getElementById("song-list");
-    list.innerHTML = data.map(s => `
-        <p>🎶 ${s.song} - ${s.artist || ""} <br><small>by ${s.name}</small></p>
-    `).join("");
+// idioma
+function setLang(lang){
+ localStorage.setItem("lang",lang);
+ updateLang();
 }
 
-// 🎵 enviar canción
-document.getElementById("song-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
+function updateLang(){
+ const lang = localStorage.getItem("lang") || (navigator.language.startsWith("es") ? "es":"en");
 
-    const name = document.getElementById("name").value;
-    const song = document.getElementById("song").value;
-    const artist = document.getElementById("artist").value;
+ document.querySelectorAll("[data-lang]").forEach(el=>{
+  el.style.display = el.dataset.lang===lang ? "block":"none";
+ });
+}
+updateLang();
 
-    await supabase.from("songs").insert([{ name, song, artist }]);
+// countdown
+function countdown(){
+ const d = new Date("2027-06-05T12:00:00");
+ const now = new Date();
+ const days = Math.floor((d-now)/(1000*60*60*24));
+ document.getElementById("countdown").innerText = days+" days";
+}
+setInterval(countdown,1000);
+countdown();
 
-    e.target.reset();
-    loadSongs();
+// songs
+async function loadSongs(){
+ const {data} = await supabase.from("songs").select("*").order("created_at",{ascending:false});
+ document.getElementById("song-list").innerHTML =
+ data.map(s=>`<p>🎵 ${s.song} - ${s.artist||""}</p>`).join("");
+}
+
+document.getElementById("song-form").addEventListener("submit", async e=>{
+ e.preventDefault();
+
+ await supabase.from("songs").insert([{
+  name: name.value,
+  song: song.value,
+  artist: artist.value
+ }]);
+
+ e.target.reset();
+ loadSongs();
 });
 
 loadSongs();
-
-
-// ⏳ COUNTDOWN
-function updateCountdown() {
-    const weddingDate = new Date("2027-06-05T12:00:00");
-    const now = new Date();
-
-    const diff = weddingDate - now;
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-    document.getElementById("countdown").innerText =
-        days + " days to go";
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
 </script>
 </html>
