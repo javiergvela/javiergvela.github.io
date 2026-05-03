@@ -35,16 +35,18 @@ a{text-decoration:none}
 .lang-switch{
   position:fixed;top:22px;right:24px;z-index:200;
   display:flex;align-items:center;gap:6px;
-  background:rgba(255,255,255,0.15);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.3);border-radius:30px;padding:6px 14px;
+  background:rgba(43,39,34,0.72);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.12);border-radius:30px;padding:6px 16px;
+  transition:background .3s;
 }
 .lang-switch button{
   background:none;border:none;cursor:pointer;
   font-family:var(--ff-sans);font-size:11px;font-weight:500;
-  letter-spacing:.12em;color:white;padding:2px 4px;transition:color .2s;
+  letter-spacing:.14em;color:rgba(255,255,255,0.6);padding:2px 4px;transition:color .2s;
 }
 .lang-switch button.active{color:var(--gold-lt)}
-.lang-sep{color:rgba(255,255,255,.35);font-size:11px}
+.lang-sep{color:rgba(255,255,255,.2);font-size:11px}
+.flag{font-size:13px;vertical-align:middle;margin-right:3px}
 
 /* ── Hero ── */
 .hero{
@@ -258,9 +260,9 @@ a{text-decoration:none}
 
 <!-- LANGUAGE SWITCH -->
 <div class="lang-switch">
-  <button onclick="setLang('en')" id="btn-en">EN</button>
+  <button onclick="setLang('es')" id="btn-es"><span class="flag">🇪🇸</span> ES</button>
   <span class="lang-sep">|</span>
-  <button onclick="setLang('es')" id="btn-es">ES</button>
+  <button onclick="setLang('en')" id="btn-en"><span class="flag">🇺🇸</span> EN</button>
 </div>
 
 <!-- HERO -->
@@ -451,7 +453,7 @@ a{text-decoration:none}
   // ── Language ──────────────────────────────────
   function setLang(lang){localStorage.setItem("lang",lang);updateLang()}
   function updateLang(){
-    const lang=localStorage.getItem("lang")||(navigator.language.startsWith("es")?"es":"en");
+    const lang=localStorage.getItem("lang")||"es";
     document.querySelectorAll("[data-lang]").forEach(el=>{
       el.style.display=el.dataset.lang===lang?"":"none";
     });
@@ -497,7 +499,6 @@ a{text-decoration:none}
   });
   loadSongs();
 
-  
   // ── Scroll reveal ─────────────────────────────
   function revealAll(){
     document.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible"));
