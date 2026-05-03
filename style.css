@@ -1,14 +1,13 @@
-
-/* RESET */
 body {
     margin: 0;
     font-family: 'Lato', sans-serif;
+    background: #fafafa;
     color: #333;
 }
 
 /* HERO */
 .hero {
-    height: 100vh;
+    height: 90vh;
     background: url('IMG_0883.jpeg') center/cover no-repeat;
     position: relative;
     display: flex;
@@ -30,37 +29,17 @@ body {
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 60px;
-}
-
-#countdown {
-    margin: 15px 0;
-    font-size: 20px;
+    font-size: 48px;
 }
 
 /* SECTIONS */
-.section {
-    padding: 80px 20px;
-    max-width: 900px;
-    margin: auto;
-    text-align: center;
-}
-
-.section.alt {
-    background: #f8f8f8;
-}
-
-/* TIMELINE */
-.timeline {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-}
-
-.timeline div {
+.card {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
     background: white;
-    padding: 20px;
     border-radius: 12px;
+    text-align: center;
 }
 
 /* FORM */
@@ -68,32 +47,52 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 #song-form input {
-    padding: 12px;
+    padding: 10px;
     border-radius: 8px;
     border: 1px solid #ddd;
 }
 
+/* SONG LIST */
+#song-list p {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+}
+
 /* BUTTON */
 .btn {
-    padding: 12px 20px;
-    border-radius: 25px;
-    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
     border: none;
+    background: black;
+    color: white;
+    text-decoration: none;
     cursor: pointer;
 }
 
-.primary-btn {
-    background: black;
-    color: white;
+/* LANGUAGE SWITCH */
+.lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
 }
 
-/* MAP */
-iframe {
-    width: 100%;
-    height: 300px;
-    border-radius: 10px;
+.lang-switch button {
+    background: white;
     border: none;
+    margin-left: 5px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
 }
