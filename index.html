@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -18,14 +18,13 @@
 </div>
 
 <header class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
+    <div class="hero-content fade-in">
         <h1>Lily & Javier</h1>
 
-        <p data-lang="en">Saturday, June 5th, 2027</p>
-        <p data-lang="es">Sábado, 5 de junio de 2027</p>
+        <p class="date" data-lang="en">Saturday, June 5th, 2027</p>
+        <p class="date" data-lang="es">Sábado, 5 de junio de 2027</p>
 
-        <p>Toledo, Spain</p>
+        <p class="location">Toledo, Spain</p>
 
         <p id="countdown"></p>
     </div>
@@ -33,41 +32,66 @@
 
 <main>
 
-<section class="card">
+<section class="card fade-in">
     <h2 data-lang="en">Our Story</h2>
     <h2 data-lang="es">Nuestra Historia</h2>
 
-    <p data-lang="en">
-        We met in Basel and built a life full of adventures.
-    </p>
-    <p data-lang="es">
-        Nos conocimos en Basilea y construimos una vida llena de aventuras.
-    </p>
+    <div class="story-content">
+
+        <h3 data-lang="en">How We Met</h3>
+        <h3 data-lang="es">Cómo nos conocimos</h3>
+
+        <p data-lang="en">We first crossed paths at a coffee shop...</p>
+        <p data-lang="es">Nos conocimos en una cafetería...</p>
+
+        <h3 data-lang="en">What We Love</h3>
+        <h3 data-lang="es">Lo que nos encanta</h3>
+
+        <p data-lang="en">We love hiking, cooking and movies...</p>
+        <p data-lang="es">Nos encanta hacer senderismo, cocinar y ver películas...</p>
+
+    </div>
 </section>
 
-<section class="card">
+<!-- 📸 GALERÍA RESTAURADA -->
+<section class="card fade-in">
+    <h2 data-lang="en">Moments Together</h2>
+    <h2 data-lang="es">Momentos juntos</h2>
+
+    <div class="photo-grid">
+        <img src="IMG_0883.jpeg">
+        <img src="IMG_2191.jpeg">
+        <img src="IMG_9951.jpeg">
+        <img src="GPTempDownload.JPG">
+    </div>
+</section>
+
+<div class="events-wrapper">
+
+<section class="card split-card fade-in">
     <h2 data-lang="en">The Ceremony</h2>
     <h2 data-lang="es">La Ceremonia</h2>
 
     <p><strong>Monasterio de San Juan de los Reyes</strong></p>
-    <p>C. de los Reyes Católicos, Toledo</p>
 
     <p data-lang="en">Arrive 11:30 · Starts 12:00</p>
     <p data-lang="es">Llegada 11:30 · Comienza 12:00</p>
 </section>
 
-<section class="card">
+<section class="card split-card fade-in">
     <h2 data-lang="en">The Reception</h2>
     <h2 data-lang="es">La Celebración</h2>
 
     <p><strong>Cigarral de las Mercedes</strong></p>
 
-    <p data-lang="en">17:30 Cocktails, dinner & party</p>
-    <p data-lang="es">17:30 Cóctel, cena y fiesta</p>
+    <p data-lang="en">17:30 Cocktails, dinner & dancing</p>
+    <p data-lang="es">17:30 Cóctel, cena y baile</p>
 </section>
 
-<!-- 🎵 SONGS -->
-<section class="card">
+</div>
+
+<!-- 🎵 CANCIONES -->
+<section class="card fade-in">
     <h2 data-lang="en">Music Requests</h2>
     <h2 data-lang="es">Sugerencias musicales</h2>
 
@@ -76,82 +100,62 @@
         <input id="song" placeholder="Song / Canción">
         <input id="artist" placeholder="Artist / Artista">
 
-        <button class="btn">Submit</button>
+        <button class="btn primary-btn">Submit</button>
     </form>
 
     <div id="song-list"></div>
 </section>
 
-<section class="card">
+<section class="card fade-in">
     <h2>RSVP</h2>
-
-    <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn">
-        RSVP
-    </a>
+    <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn primary-btn">RSVP</a>
 </section>
 
 </main>
 
 <footer>
-    <p>Lily & Javier · 2027</p>
+    <p>Made with ❤️ by Lily & Javier</p>
 </footer>
-
-<!-- JS -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 <script>
-const supabase = window.supabase.createClient(
-  "https://lrojhwzcreikjjauwzzm.supabase.co/rest/v1/",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxyb2pod3pjcmVpa2pqYXV3enptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3ODUxNzAsImV4cCI6MjA5MzM2MTE3MH0.5fWlWTy55SoMUR3IMtW8nlD4OO6T5hkIafQowMjbW0c"
-);
+const supabase = window.supabase.createClient("TU_URL","TU_KEY");
 
 // idioma
-function setLang(lang){
- localStorage.setItem("lang",lang);
- updateLang();
-}
-
+function setLang(lang){localStorage.setItem("lang",lang);updateLang();}
 function updateLang(){
- const lang = localStorage.getItem("lang") || (navigator.language.startsWith("es") ? "es":"en");
-
+ const lang = localStorage.getItem("lang") || (navigator.language.startsWith("es")?"es":"en");
  document.querySelectorAll("[data-lang]").forEach(el=>{
-  el.style.display = el.dataset.lang===lang ? "block":"none";
+  el.style.display = el.dataset.lang===lang?"block":"none";
  });
 }
 updateLang();
 
 // countdown
 function countdown(){
- const d = new Date("2027-06-05T12:00:00");
- const now = new Date();
- const days = Math.floor((d-now)/(1000*60*60*24));
- document.getElementById("countdown").innerText = days+" days";
+ const d=new Date("2027-06-05T12:00:00");
+ const now=new Date();
+ const days=Math.floor((d-now)/(1000*60*60*24));
+ document.getElementById("countdown").innerText=days+" days";
 }
 setInterval(countdown,1000);
 countdown();
 
 // songs
 async function loadSongs(){
- const {data} = await supabase.from("songs").select("*").order("created_at",{ascending:false});
- document.getElementById("song-list").innerHTML =
+ const {data}=await supabase.from("songs").select("*").order("created_at",{ascending:false});
+ document.getElementById("song-list").innerHTML=
  data.map(s=>`<p>🎵 ${s.song} - ${s.artist||""}</p>`).join("");
 }
 
-document.getElementById("song-form").addEventListener("submit", async e=>{
+document.getElementById("song-form").addEventListener("submit",async e=>{
  e.preventDefault();
-
- const name = document.getElementById("name").value.trim();
- const song = document.getElementById("song").value.trim();
- const artist = document.getElementById("artist").value.trim();
-
- if(!name || !song){
-  alert("Please fill all required fields");
-  return;
- }
-
+ const name=name.value.trim();
+ const song=song.value.trim();
+ const artist=artist.value.trim();
+ if(!name||!song)return alert("Fill required fields");
  await supabase.from("songs").insert([{name,song,artist}]);
-
  e.target.reset();
  loadSongs();
 });
