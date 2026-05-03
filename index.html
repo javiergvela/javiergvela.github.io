@@ -6,7 +6,250 @@
   <title>Lily & Javier — June 5, 2027</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<style>
+/* ═══════════════════════════════════════════
+   LILY & JAVIER · Botanical Luxury Wedding
+   ═══════════════════════════════════════════ */
+:root {
+  --cream:    #faf8f4;
+  --ivory:    #f2ede4;
+  --rose:     #c4877e;
+  --rose-lt:  #e8c5bf;
+  --sage:     #7a9177;
+  --sage-lt:  #b5c9b2;
+  --gold:     #b8975a;
+  --gold-lt:  #ddc99a;
+  --charcoal: #2b2722;
+  --warm-grey:#6b6258;
+  --ff-serif: 'Cormorant Garamond', Georgia, serif;
+  --ff-sans:  'Jost', system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.22,1,0.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-sans);background:var(--cream);color:var(--charcoal);overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{text-decoration:none}
+
+/* ── Lang Switch ── */
+.lang-switch{
+  position:fixed;top:22px;right:24px;z-index:200;
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.15);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.3);border-radius:30px;padding:6px 14px;
+}
+.lang-switch button{
+  background:none;border:none;cursor:pointer;
+  font-family:var(--ff-sans);font-size:11px;font-weight:500;
+  letter-spacing:.12em;color:white;padding:2px 4px;transition:color .2s;
+}
+.lang-switch button.active{color:var(--gold-lt)}
+.lang-sep{color:rgba(255,255,255,.35);font-size:11px}
+
+/* ── Hero ── */
+.hero{
+  position:relative;height:100svh;min-height:560px;
+  background:url('IMG_0883.jpeg') center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(28,20,16,.35) 0%,rgba(28,20,16,.55) 60%,rgba(28,20,16,.72) 100%);
+}
+.hero-content{position:relative;z-index:2;color:white;padding:20px;animation:hReveal 1.4s var(--ease-out) both}
+@keyframes hReveal{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.hero-eyebrow{
+  font-family:var(--ff-sans);font-size:11px;font-weight:400;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--gold-lt);
+  margin-bottom:22px;animation:hReveal 1.4s .15s var(--ease-out) both;
+}
+.hero-title{
+  font-family:var(--ff-serif);font-size:clamp(62px,11vw,108px);
+  font-weight:300;line-height:1;letter-spacing:-.01em;margin-bottom:22px;
+  animation:hReveal 1.4s .25s var(--ease-out) both;
+}
+.hero-title .amp{font-style:italic;color:var(--rose-lt);font-size:.85em}
+.divider-floral{
+  width:200px;margin:0 auto 26px;color:var(--gold-lt);opacity:.75;
+  animation:hReveal 1.4s .38s var(--ease-out) both;
+}
+.hero-countdown{
+  display:flex;justify-content:center;gap:22px;
+  font-family:var(--ff-serif);font-size:clamp(26px,5vw,42px);font-weight:300;
+  margin-bottom:44px;animation:hReveal 1.4s .5s var(--ease-out) both;
+}
+.hero-countdown span{display:flex;flex-direction:column;align-items:center;min-width:48px}
+.hero-countdown small{
+  font-family:var(--ff-sans);font-size:9.5px;font-weight:400;
+  letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-top:3px;
+}
+.hero-cta{
+  display:inline-block;font-family:var(--ff-sans);font-size:10.5px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:white;
+  border:1px solid rgba(255,255,255,.5);border-radius:30px;padding:14px 38px;
+  transition:background .3s,border-color .3s;
+  animation:hReveal 1.4s .65s var(--ease-out) both;
+}
+.hero-cta:hover{background:rgba(255,255,255,.12);border-color:white}
+
+/* ── Shared section ── */
+.section{padding:100px 24px}
+.section-inner{max-width:880px;margin:0 auto;text-align:center}
+.section-inner.narrow{max-width:620px}
+.section-tag{
+  display:inline-block;font-family:var(--ff-sans);font-size:10px;font-weight:500;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;
+}
+.section-title{
+  font-family:var(--ff-serif);font-size:clamp(34px,5vw,52px);font-weight:300;
+  line-height:1.2;color:var(--charcoal);margin-bottom:12px;
+}
+.section-sub{font-size:15px;font-weight:300;color:var(--warm-grey);line-height:1.85;margin-bottom:48px}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── Story ── */
+.story-section{background:var(--cream)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:52px;text-align:left}
+.story-block{background:var(--ivory);border-radius:4px;padding:40px 34px;border-left:2px solid var(--rose-lt)}
+.story-icon{font-size:26px;margin-bottom:14px}
+.story-block h3{font-family:var(--ff-serif);font-size:22px;font-weight:400;color:var(--charcoal);margin-bottom:10px}
+.story-block p{font-size:14.5px;font-weight:300;color:var(--warm-grey);line-height:1.9}
+
+/* ── Gallery ── */
+.gallery-section{padding:0 0 80px}
+.gallery-header{text-align:center;padding:80px 24px 40px}
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:260px 260px;
+  gap:5px;padding:0 5px;
+}
+.photo-item{overflow:hidden;background:var(--ivory)}
+.photo-item.tall{grid-row:span 2}
+.photo-item img{transition:transform .7s var(--ease-out)}
+.photo-item:hover img{transform:scale(1.06)}
+
+/* ── Events ── */
+.events-section{background:var(--ivory)}
+.events-grid{
+  display:grid;grid-template-columns:1fr 56px 1fr;
+  gap:0 20px;align-items:center;margin-top:56px;text-align:left;
+}
+.event-card{
+  padding:44px 38px;background:white;border-radius:4px;
+  box-shadow:0 2px 28px rgba(43,39,34,.06);
+}
+.event-label{
+  font-family:var(--ff-serif);font-size:10.5px;font-weight:600;
+  letter-spacing:.32em;color:var(--gold);margin-bottom:10px;
+}
+.event-card h3{font-family:var(--ff-serif);font-size:27px;font-weight:300;color:var(--charcoal);margin-bottom:14px}
+.event-sep{width:30px;height:1px;background:var(--rose-lt);margin-bottom:18px}
+.event-venue{font-family:var(--ff-serif);font-size:16px;font-weight:400;font-style:italic;color:var(--charcoal);margin-bottom:8px}
+.event-time{font-size:13px;font-weight:300;color:var(--warm-grey);letter-spacing:.05em;margin-bottom:20px}
+.event-map-link{
+  font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rose);border-bottom:1px solid var(--rose-lt);padding-bottom:2px;transition:color .2s;
+}
+.event-map-link:hover{color:var(--charcoal)}
+.events-flower{color:var(--sage-lt);opacity:.65;display:flex;justify-content:center}
+.events-flower svg{width:38px;height:86px}
+
+/* ── Music ── */
+.music-section{background:var(--cream)}
+.song-form-wrap{
+  background:white;border-radius:4px;padding:40px;
+  box-shadow:0 2px 28px rgba(43,39,34,.06);text-align:left;margin-bottom:32px;
+}
+.form-row{margin-bottom:18px}
+.form-row.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{
+  font-size:10px;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--warm-grey);
+}
+.form-group input{
+  font-family:var(--ff-sans);font-size:14px;font-weight:300;
+  padding:12px 16px;border:1px solid #e0d9cf;border-radius:3px;
+  background:var(--cream);color:var(--charcoal);outline:none;transition:border-color .2s;
+}
+.form-group input:focus{border-color:var(--rose)}
+.form-group input::placeholder{color:#c0b8ae}
+.btn-primary{
+  display:inline-block;font-family:var(--ff-sans);font-size:10.5px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;background:var(--charcoal);
+  color:white;padding:14px 38px;border-radius:30px;border:none;cursor:pointer;
+  transition:background .25s,transform .2s;margin-top:8px;
+}
+.btn-primary:hover{background:var(--rose);transform:translateY(-1px)}
+.song-list{display:flex;flex-direction:column;gap:3px}
+.song-item{
+  display:flex;align-items:center;gap:14px;
+  padding:13px 18px;background:var(--ivory);border-radius:3px;
+}
+.song-note{color:var(--rose);font-size:15px}
+.song-title{font-family:var(--ff-serif);font-size:16px;font-weight:400;color:var(--charcoal);flex:1}
+.song-artist{color:var(--warm-grey);font-weight:300;font-size:13px}
+.song-from{margin-left:auto;font-size:10.5px;color:var(--sage);letter-spacing:.05em}
+
+/* ── RSVP ── */
+.rsvp-section{background:var(--charcoal);padding:120px 24px;text-align:center}
+.rsvp-eyebrow{
+  font-family:var(--ff-sans);font-size:10.5px;font-weight:400;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:20px;
+}
+.rsvp-title{
+  font-family:var(--ff-serif);font-size:clamp(28px,4vw,46px);
+  font-weight:300;color:white;margin-bottom:48px;
+}
+.btn-light{
+  background:transparent;border:1px solid rgba(255,255,255,.42);
+  color:white;padding:16px 52px;
+}
+.btn-light:hover{background:white;color:var(--charcoal)}
+
+/* ── Footer ── */
+.footer{
+  background:#201c19;color:rgba(255,255,255,.4);
+  text-align:center;padding:60px 24px;
+  font-size:11.5px;font-weight:300;letter-spacing:.12em;line-height:2.2;
+}
+.footer-monogram{
+  font-family:var(--ff-serif);font-size:34px;font-weight:300;
+  font-style:italic;color:var(--gold);margin-bottom:14px;
+}
+.footer-love{color:rgba(255,255,255,.22);margin-top:6px}
+
+/* ══════════════ RESPONSIVE ══════════════ */
+@media(max-width:768px){
+  .hero-title{font-size:52px}
+  .hero-countdown{gap:14px;font-size:28px}
+  .lang-switch{top:14px;right:14px;padding:5px 10px}
+  .story-grid{grid-template-columns:1fr;gap:14px}
+  .story-block{padding:28px 22px}
+  .photo-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:180px 180px 180px;
+    padding:0 4px;gap:4px;
+  }
+  .photo-item.tall{grid-row:span 1}
+  .events-grid{grid-template-columns:1fr;gap:14px}
+  .events-flower{display:none}
+  .event-card{padding:30px 22px}
+  .form-row.two-col{grid-template-columns:1fr}
+  .song-form-wrap{padding:26px 18px}
+  .song-from{display:none}
+  .section{padding:68px 18px}
+  .rsvp-section{padding:80px 20px}
+}
+@media(max-width:420px){
+  .hero-title{font-size:40px}
+  .photo-grid{grid-template-columns:1fr;grid-template-rows:repeat(4,220px)}
+}
+</style>
 </head>
 <body>
 
@@ -22,7 +265,7 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Toledo, Spain · June 5, 2027</p>
-    <h1 class="hero-title">Lily <span class="amp">&</span> Javier</h1>
+    <h1 class="hero-title">Lily <span class="amp">&amp;</span> Javier</h1>
     <div class="divider-floral">
       <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
         <line x1="0" y1="10" x2="75" y2="10" stroke="currentColor" stroke-width="0.5"/>
@@ -41,7 +284,7 @@
 </header>
 
 <!-- STORY -->
-<section class="section story-section" id="story">
+<section class="section story-section reveal" id="story">
   <div class="section-inner">
     <span class="section-tag">
       <span data-lang="en">Our Story</span>
@@ -71,7 +314,7 @@
 </section>
 
 <!-- GALLERY -->
-<section class="gallery-section">
+<section class="gallery-section reveal">
   <div class="gallery-header">
     <span class="section-tag">
       <span data-lang="en">Moments Together</span>
@@ -79,19 +322,15 @@
     </span>
   </div>
   <div class="photo-grid">
-    <div class="photo-item tall"><img src="IMG_0883.jpeg" alt="Photo 1" loading="lazy"></div>
-    <div class="photo-item">
-      <img src="IMG_2191.jpeg" alt="Photo 2" loading="lazy">
-    </div>
-    <div class="photo-item">
-      <img src="IMG_9951.jpeg" alt="Photo 3" loading="lazy">
-    </div>
-    <div class="photo-item tall"><img src="GPTempDownload.JPG" alt="Photo 4" loading="lazy"></div>
+    <div class="photo-item tall"><img src="IMG_0883.jpeg" alt="" loading="lazy"></div>
+    <div class="photo-item"><img src="IMG_2191.jpeg" alt="" loading="lazy"></div>
+    <div class="photo-item"><img src="IMG_9951.jpeg" alt="" loading="lazy"></div>
+    <div class="photo-item tall"><img src="GPTempDownload.JPG" alt="" loading="lazy"></div>
   </div>
 </section>
 
 <!-- EVENTS -->
-<section class="section events-section" id="events">
+<section class="section events-section reveal" id="events">
   <div class="section-inner">
     <span class="section-tag">
       <span data-lang="en">The Wedding Day</span>
@@ -142,7 +381,7 @@
 </section>
 
 <!-- MUSIC -->
-<section class="section music-section" id="music">
+<section class="section music-section reveal" id="music">
   <div class="section-inner narrow">
     <span class="section-tag">
       <span data-lang="en">Music Requests</span>
@@ -154,7 +393,6 @@
     </h2>
     <p class="section-sub" data-lang="en">Help us build the perfect playlist for the night.</p>
     <p class="section-sub" data-lang="es">Ayúdanos a crear la playlist perfecta para la noche.</p>
-
     <div class="song-form-wrap">
       <div class="form-row">
         <div class="form-group">
@@ -180,20 +418,17 @@
         <span data-lang="es">Añadir a la lista ♪</span>
       </button>
     </div>
-
     <div id="song-list" class="song-list"></div>
   </div>
 </section>
 
 <!-- RSVP -->
-<section class="rsvp-section">
-  <div class="rsvp-inner">
-    <p class="rsvp-eyebrow" data-lang="en">We can't wait to celebrate with you</p>
-    <p class="rsvp-eyebrow" data-lang="es">Esperamos celebrarlo contigo</p>
-    <h2 class="rsvp-title" data-lang="en">Kindly Reply by March 1st, 2027</h2>
-    <h2 class="rsvp-title" data-lang="es">Por favor, confirma antes del 1 de marzo de 2027</h2>
-    <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn-primary btn-light">RSVP</a>
-  </div>
+<section class="rsvp-section reveal">
+  <p class="rsvp-eyebrow" data-lang="en">We can't wait to celebrate with you</p>
+  <p class="rsvp-eyebrow" data-lang="es">Esperamos celebrarlo contigo</p>
+  <h2 class="rsvp-title" data-lang="en">Kindly Reply by March 1st, 2027</h2>
+  <h2 class="rsvp-title" data-lang="es">Por favor, confirma antes del 1 de marzo de 2027</h2>
+  <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn-primary btn-light">RSVP</a>
 </section>
 
 <!-- FOOTER -->
@@ -206,78 +441,64 @@
 <!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // ── Supabase ──────────────────────────────────────────────
+  // ── Supabase ──────────────────────────────────
   const { createClient } = supabase;
-  const db = createClient("https://lrojhwzcreikjjauwzzm.supabase.co/rest/v1/", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxyb2pod3pjcmVpa2pqYXV3enptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3ODUxNzAsImV4cCI6MjA5MzM2MTE3MH0.5fWlWTy55SoMUR3IMtW8nlD4OO6T5hkIafQowMjbW0c");
+  const db = createClient("TU_URL", "TU_KEY");
 
-  // ── Language ──────────────────────────────────────────────
-  function setLang(lang) {
-    localStorage.setItem("lang", lang);
-    updateLang();
-  }
-  function updateLang() {
-    const lang = localStorage.getItem("lang") ||
-      (navigator.language.startsWith("es") ? "es" : "en");
-    document.querySelectorAll("[data-lang]").forEach(el => {
-      el.style.display = el.dataset.lang === lang ? "" : "none";
+  // ── Language ──────────────────────────────────
+  function setLang(lang){localStorage.setItem("lang",lang);updateLang()}
+  function updateLang(){
+    const lang=localStorage.getItem("lang")||(navigator.language.startsWith("es")?"es":"en");
+    document.querySelectorAll("[data-lang]").forEach(el=>{
+      el.style.display=el.dataset.lang===lang?"":"none";
     });
-    document.getElementById("btn-en").classList.toggle("active", lang === "en");
-    document.getElementById("btn-es").classList.toggle("active", lang === "es");
+    document.getElementById("btn-en").classList.toggle("active",lang==="en");
+    document.getElementById("btn-es").classList.toggle("active",lang==="es");
   }
   updateLang();
 
-  // ── Countdown ─────────────────────────────────────────────
-  function updateCountdown() {
-    const target = new Date("2027-06-05T12:00:00");
-    const now = new Date();
-    const diff = target - now;
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    document.getElementById("countdown").innerHTML =
-      `<span>${d}<small>d</small></span><span>${h}<small>h</small></span><span>${m}<small>m</small></span>`;
+  // ── Countdown ─────────────────────────────────
+  function updateCountdown(){
+    const diff=new Date("2027-06-05T12:00:00")-new Date();
+    const d=Math.floor(diff/(864e5));
+    const h=Math.floor((diff%864e5)/36e5);
+    const m=Math.floor((diff%36e5)/6e4);
+    document.getElementById("countdown").innerHTML=
+      `<span>${d}<small>días</small></span><span>${h}<small>h</small></span><span>${m}<small>min</small></span>`;
   }
-  setInterval(updateCountdown, 60000);
+  setInterval(updateCountdown,60000);
   updateCountdown();
 
-  // ── Songs ─────────────────────────────────────────────────
-  async function loadSongs() {
-    const { data } = await db.from("songs").select("*").order("created_at", { ascending: false });
-    const list = document.getElementById("song-list");
-    if (!data || !data.length) {
-      list.innerHTML = "";
-      return;
-    }
-    list.innerHTML = data.map(s =>
-      `<div class="song-item"><span class="song-note">♪</span><span class="song-title">${s.song}</span><span class="song-artist">${s.artist || ""}</span><span class="song-from">${s.name}</span></div>`
+  // ── Songs ─────────────────────────────────────
+  async function loadSongs(){
+    const {data}=await db.from("songs").select("*").order("created_at",{ascending:false});
+    const list=document.getElementById("song-list");
+    if(!data||!data.length){list.innerHTML="";return}
+    list.innerHTML=data.map(s=>
+      `<div class="song-item">
+        <span class="song-note">♪</span>
+        <span class="song-title">${s.song}</span>
+        <span class="song-artist">${s.artist||""}</span>
+        <span class="song-from">${s.name}</span>
+      </div>`
     ).join("");
   }
-
-  document.getElementById("song-submit").addEventListener("click", async () => {
-    const nameVal = document.getElementById("inp-name").value.trim();
-    const songVal = document.getElementById("inp-song").value.trim();
-    const artistVal = document.getElementById("inp-artist").value.trim();
-    if (!nameVal || !songVal) {
-      alert("Please fill in your name and song.");
-      return;
-    }
-    await db.from("songs").insert([{ name: nameVal, song: songVal, artist: artistVal }]);
-    document.getElementById("inp-name").value = "";
-    document.getElementById("inp-song").value = "";
-    document.getElementById("inp-artist").value = "";
+  document.getElementById("song-submit").addEventListener("click",async()=>{
+    const nameVal=document.getElementById("inp-name").value.trim();
+    const songVal=document.getElementById("inp-song").value.trim();
+    const artistVal=document.getElementById("inp-artist").value.trim();
+    if(!nameVal||!songVal)return alert("Please fill in your name and the song title.");
+    await db.from("songs").insert([{name:nameVal,song:songVal,artist:artistVal}]);
+    ["inp-name","inp-song","inp-artist"].forEach(id=>document.getElementById(id).value="");
     loadSongs();
   });
-
   loadSongs();
 
-  // ── Scroll fade-in ────────────────────────────────────────
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
-  }, { threshold: 0.12 });
-  document.querySelectorAll(".section, .gallery-section, .rsvp-section").forEach(el => {
-    el.classList.add("reveal");
-    observer.observe(el);
-  });
+  // ── Scroll reveal ─────────────────────────────
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")});
+  },{threshold:.1});
+  document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
