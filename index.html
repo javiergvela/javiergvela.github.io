@@ -1,167 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lily & Javier's Wedding</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lily & Javier — June 5, 2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- 🌍 idioma -->
+<!-- LANGUAGE SWITCH -->
 <div class="lang-switch">
-    <button onclick="setLang('en')" id="btn-en">🇺🇸</button>
-    <button onclick="setLang('es')" id="btn-es">🇪🇸</button>
+  <button onclick="setLang('en')" id="btn-en">EN</button>
+  <span class="lang-sep">|</span>
+  <button onclick="setLang('es')" id="btn-es">ES</button>
 </div>
 
+<!-- HERO -->
 <header class="hero">
-    <div class="hero-content fade-in">
-        <h1>Lily & Javier</h1>
-
-        <p class="date" data-lang="en">Saturday, June 5th, 2027</p>
-        <p class="date" data-lang="es">Sábado, 5 de junio de 2027</p>
-
-        <p class="location">Toledo, Spain</p>
-
-        <p id="countdown"></p>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Toledo, Spain · June 5, 2027</p>
+    <h1 class="hero-title">Lily <span class="amp">&</span> Javier</h1>
+    <div class="divider-floral">
+      <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="10" x2="75" y2="10" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="100" cy="10" r="4" fill="none" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="88" cy="10" r="2" fill="currentColor"/>
+        <circle cx="112" cy="10" r="2" fill="currentColor"/>
+        <line x1="125" y1="10" x2="200" y2="10" stroke="currentColor" stroke-width="0.5"/>
+      </svg>
     </div>
+    <p id="countdown" class="hero-countdown"></p>
+    <a href="#events" class="hero-cta">
+      <span data-lang="en">Explore the Day</span>
+      <span data-lang="es">Descubre el Día</span>
+    </a>
+  </div>
 </header>
 
-<main>
-
-<section class="card fade-in">
-    <h2 data-lang="en">Our Story</h2>
-    <h2 data-lang="es">Nuestra Historia</h2>
-
-    <div class="story-content">
-
+<!-- STORY -->
+<section class="section story-section" id="story">
+  <div class="section-inner">
+    <span class="section-tag">
+      <span data-lang="en">Our Story</span>
+      <span data-lang="es">Nuestra Historia</span>
+    </span>
+    <h2 class="section-title">
+      <span data-lang="en">A Love Written in the Stars</span>
+      <span data-lang="es">Un amor escrito en las estrellas</span>
+    </h2>
+    <div class="story-grid">
+      <div class="story-block">
+        <div class="story-icon">☕</div>
         <h3 data-lang="en">How We Met</h3>
         <h3 data-lang="es">Cómo nos conocimos</h3>
-
-        <p data-lang="en">We first crossed paths at a coffee shop...</p>
-        <p data-lang="es">Nos conocimos en una cafetería...</p>
-
+        <p data-lang="en">We first crossed paths at a coffee shop, where a shared glance over cappuccinos turned into hours of laughter and conversation neither of us wanted to end.</p>
+        <p data-lang="es">Nos conocimos en una cafetería, donde una mirada compartida sobre dos capuchinos se convirtió en horas de risa y conversación que ninguno quería terminar.</p>
+      </div>
+      <div class="story-block">
+        <div class="story-icon">🌿</div>
         <h3 data-lang="en">What We Love</h3>
         <h3 data-lang="es">Lo que nos encanta</h3>
-
-        <p data-lang="en">We love hiking, cooking and movies...</p>
-        <p data-lang="es">Nos encanta hacer senderismo, cocinar y ver películas...</p>
-
+        <p data-lang="en">Hiking through mountain trails at dawn, cooking elaborate Sunday meals, and debating which movie to watch — before falling asleep before it ends.</p>
+        <p data-lang="es">Senderismo al amanecer, cocinar los domingos y debatir qué película ver — para quedarnos dormidos antes de que termine.</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- 📸 GALERÍA RESTAURADA -->
-<section class="card fade-in">
-    <h2 data-lang="en">Moments Together</h2>
-    <h2 data-lang="es">Momentos juntos</h2>
-
-    <div class="photo-grid">
-        <img src="IMG_0883.jpeg">
-        <img src="IMG_2191.jpeg">
-        <img src="IMG_9951.jpeg">
-        <img src="GPTempDownload.JPG">
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="gallery-header">
+    <span class="section-tag">
+      <span data-lang="en">Moments Together</span>
+      <span data-lang="es">Momentos juntos</span>
+    </span>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-item tall"><img src="IMG_0883.jpeg" alt="Photo 1" loading="lazy"></div>
+    <div class="photo-item">
+      <img src="IMG_2191.jpeg" alt="Photo 2" loading="lazy">
     </div>
+    <div class="photo-item">
+      <img src="IMG_9951.jpeg" alt="Photo 3" loading="lazy">
+    </div>
+    <div class="photo-item tall"><img src="GPTempDownload.JPG" alt="Photo 4" loading="lazy"></div>
+  </div>
 </section>
 
-<div class="events-wrapper">
-
-<section class="card split-card fade-in">
-    <h2 data-lang="en">The Ceremony</h2>
-    <h2 data-lang="es">La Ceremonia</h2>
-
-    <p><strong>Monasterio de San Juan de los Reyes</strong></p>
-
-    <p data-lang="en">Arrive 11:30 · Starts 12:00</p>
-    <p data-lang="es">Llegada 11:30 · Comienza 12:00</p>
+<!-- EVENTS -->
+<section class="section events-section" id="events">
+  <div class="section-inner">
+    <span class="section-tag">
+      <span data-lang="en">The Wedding Day</span>
+      <span data-lang="es">El Gran Día</span>
+    </span>
+    <h2 class="section-title">
+      <span data-lang="en">Join us in Toledo</span>
+      <span data-lang="es">Acompáñanos en Toledo</span>
+    </h2>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-label">I</div>
+        <h3 data-lang="en">The Ceremony</h3>
+        <h3 data-lang="es">La Ceremonia</h3>
+        <div class="event-sep"></div>
+        <p class="event-venue">Monasterio de San Juan de los Reyes</p>
+        <p class="event-time" data-lang="en">Doors open 11:30 · Ceremony 12:00</p>
+        <p class="event-time" data-lang="es">Puertas 11:30 · Ceremonia 12:00</p>
+        <a class="event-map-link" href="https://maps.google.com/?q=Monasterio+San+Juan+de+los+Reyes+Toledo" target="_blank">
+          <span data-lang="en">View on Map ↗</span>
+          <span data-lang="es">Ver en el Mapa ↗</span>
+        </a>
+      </div>
+      <div class="events-flower">
+        <svg viewBox="0 0 60 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="0.8">
+          <line x1="30" y1="0" x2="30" y2="120"/>
+          <ellipse cx="30" cy="30" rx="10" ry="18" transform="rotate(-20 30 30)"/>
+          <ellipse cx="30" cy="30" rx="10" ry="18" transform="rotate(20 30 30)"/>
+          <ellipse cx="30" cy="70" rx="8" ry="14" transform="rotate(-30 30 70)"/>
+          <ellipse cx="30" cy="70" rx="8" ry="14" transform="rotate(30 30 70)"/>
+        </svg>
+      </div>
+      <div class="event-card">
+        <div class="event-label">II</div>
+        <h3 data-lang="en">The Reception</h3>
+        <h3 data-lang="es">La Celebración</h3>
+        <div class="event-sep"></div>
+        <p class="event-venue">Cigarral de las Mercedes</p>
+        <p class="event-time" data-lang="en">17:30 · Cocktails, Dinner & Dancing</p>
+        <p class="event-time" data-lang="es">17:30 · Cóctel, Cena y Baile</p>
+        <a class="event-map-link" href="https://maps.google.com/?q=Cigarral+de+las+Mercedes+Toledo" target="_blank">
+          <span data-lang="en">View on Map ↗</span>
+          <span data-lang="es">Ver en el Mapa ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="card split-card fade-in">
-    <h2 data-lang="en">The Reception</h2>
-    <h2 data-lang="es">La Celebración</h2>
+<!-- MUSIC -->
+<section class="section music-section" id="music">
+  <div class="section-inner narrow">
+    <span class="section-tag">
+      <span data-lang="en">Music Requests</span>
+      <span data-lang="es">Sugerencias Musicales</span>
+    </span>
+    <h2 class="section-title">
+      <span data-lang="en">What Song Gets You Dancing?</span>
+      <span data-lang="es">¿Qué canción te mueve?</span>
+    </h2>
+    <p class="section-sub" data-lang="en">Help us build the perfect playlist for the night.</p>
+    <p class="section-sub" data-lang="es">Ayúdanos a crear la playlist perfecta para la noche.</p>
 
-    <p><strong>Cigarral de las Mercedes</strong></p>
+    <div class="song-form-wrap">
+      <div class="form-row">
+        <div class="form-group">
+          <label data-lang="en">Your Name</label>
+          <label data-lang="es">Tu Nombre</label>
+          <input id="inp-name" type="text" placeholder="e.g. María García">
+        </div>
+      </div>
+      <div class="form-row two-col">
+        <div class="form-group">
+          <label data-lang="en">Song Title</label>
+          <label data-lang="es">Título de la canción</label>
+          <input id="inp-song" type="text" placeholder="e.g. Perfect">
+        </div>
+        <div class="form-group">
+          <label data-lang="en">Artist</label>
+          <label data-lang="es">Artista</label>
+          <input id="inp-artist" type="text" placeholder="e.g. Ed Sheeran">
+        </div>
+      </div>
+      <button class="btn-primary" id="song-submit">
+        <span data-lang="en">Add to Playlist ♪</span>
+        <span data-lang="es">Añadir a la lista ♪</span>
+      </button>
+    </div>
 
-    <p data-lang="en">17:30 Cocktails, dinner & dancing</p>
-    <p data-lang="es">17:30 Cóctel, cena y baile</p>
+    <div id="song-list" class="song-list"></div>
+  </div>
 </section>
 
-</div>
-
-<!-- 🎵 CANCIONES -->
-<section class="card fade-in">
-    <h2 data-lang="en">Music Requests</h2>
-    <h2 data-lang="es">Sugerencias musicales</h2>
-
-    <form id="song-form">
-        <input id="name" placeholder="Name / Nombre">
-        <input id="song" placeholder="Song / Canción">
-        <input id="artist" placeholder="Artist / Artista">
-
-        <button class="btn primary-btn">Submit</button>
-    </form>
-
-    <div id="song-list"></div>
+<!-- RSVP -->
+<section class="rsvp-section">
+  <div class="rsvp-inner">
+    <p class="rsvp-eyebrow" data-lang="en">We can't wait to celebrate with you</p>
+    <p class="rsvp-eyebrow" data-lang="es">Esperamos celebrarlo contigo</p>
+    <h2 class="rsvp-title" data-lang="en">Kindly Reply by March 1st, 2027</h2>
+    <h2 class="rsvp-title" data-lang="es">Por favor, confirma antes del 1 de marzo de 2027</h2>
+    <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn-primary btn-light">RSVP</a>
+  </div>
 </section>
 
-<section class="card fade-in">
-    <h2>RSVP</h2>
-    <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn primary-btn">RSVP</a>
-</section>
-
-</main>
-
-<footer>
-    <p>Made with ❤️ by Lily & Javier</p>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-monogram">L &amp; J</div>
+  <p>Toledo, Spain · 5 · VI · MMXXVII</p>
+  <p class="footer-love">Made with ❤️ for our favourite people</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const supabase = window.supabase.createClient("TU_URL","TU_KEY");
+  // ── Supabase ──────────────────────────────────────────────
+  const { createClient } = supabase;
+  const db = createClient("https://lrojhwzcreikjjauwzzm.supabase.co/rest/v1/", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxyb2pod3pjcmVpa2pqYXV3enptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3ODUxNzAsImV4cCI6MjA5MzM2MTE3MH0.5fWlWTy55SoMUR3IMtW8nlD4OO6T5hkIafQowMjbW0c");
 
-// idioma
-function setLang(lang){localStorage.setItem("lang",lang);updateLang();}
-function updateLang(){
- const lang = localStorage.getItem("lang") || (navigator.language.startsWith("es")?"es":"en");
- document.querySelectorAll("[data-lang]").forEach(el=>{
-  el.style.display = el.dataset.lang===lang?"block":"none";
- });
-}
-updateLang();
+  // ── Language ──────────────────────────────────────────────
+  function setLang(lang) {
+    localStorage.setItem("lang", lang);
+    updateLang();
+  }
+  function updateLang() {
+    const lang = localStorage.getItem("lang") ||
+      (navigator.language.startsWith("es") ? "es" : "en");
+    document.querySelectorAll("[data-lang]").forEach(el => {
+      el.style.display = el.dataset.lang === lang ? "" : "none";
+    });
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+    document.getElementById("btn-es").classList.toggle("active", lang === "es");
+  }
+  updateLang();
 
-// countdown
-function countdown(){
- const d=new Date("2027-06-05T12:00:00");
- const now=new Date();
- const days=Math.floor((d-now)/(1000*60*60*24));
- document.getElementById("countdown").innerText=days+" days";
-}
-setInterval(countdown,1000);
-countdown();
+  // ── Countdown ─────────────────────────────────────────────
+  function updateCountdown() {
+    const target = new Date("2027-06-05T12:00:00");
+    const now = new Date();
+    const diff = target - now;
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById("countdown").innerHTML =
+      `<span>${d}<small>d</small></span><span>${h}<small>h</small></span><span>${m}<small>m</small></span>`;
+  }
+  setInterval(updateCountdown, 60000);
+  updateCountdown();
 
-// songs
-async function loadSongs(){
- const {data}=await supabase.from("songs").select("*").order("created_at",{ascending:false});
- document.getElementById("song-list").innerHTML=
- data.map(s=>`<p>🎵 ${s.song} - ${s.artist||""}</p>`).join("");
-}
+  // ── Songs ─────────────────────────────────────────────────
+  async function loadSongs() {
+    const { data } = await db.from("songs").select("*").order("created_at", { ascending: false });
+    const list = document.getElementById("song-list");
+    if (!data || !data.length) {
+      list.innerHTML = "";
+      return;
+    }
+    list.innerHTML = data.map(s =>
+      `<div class="song-item"><span class="song-note">♪</span><span class="song-title">${s.song}</span><span class="song-artist">${s.artist || ""}</span><span class="song-from">${s.name}</span></div>`
+    ).join("");
+  }
 
-document.getElementById("song-form").addEventListener("submit",async e=>{
- e.preventDefault();
- const name=name.value.trim();
- const song=song.value.trim();
- const artist=artist.value.trim();
- if(!name||!song)return alert("Fill required fields");
- await supabase.from("songs").insert([{name,song,artist}]);
- e.target.reset();
- loadSongs();
-});
+  document.getElementById("song-submit").addEventListener("click", async () => {
+    const nameVal = document.getElementById("inp-name").value.trim();
+    const songVal = document.getElementById("inp-song").value.trim();
+    const artistVal = document.getElementById("inp-artist").value.trim();
+    if (!nameVal || !songVal) {
+      alert("Please fill in your name and song.");
+      return;
+    }
+    await db.from("songs").insert([{ name: nameVal, song: songVal, artist: artistVal }]);
+    document.getElementById("inp-name").value = "";
+    document.getElementById("inp-song").value = "";
+    document.getElementById("inp-artist").value = "";
+    loadSongs();
+  });
 
-loadSongs();
+  loadSongs();
+
+  // ── Scroll fade-in ────────────────────────────────────────
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".section, .gallery-section, .rsvp-section").forEach(el => {
+    el.classList.add("reveal");
+    observer.observe(el);
+  });
 </script>
-
 </body>
 </html>
