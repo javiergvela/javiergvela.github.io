@@ -1,11 +1,3 @@
-/* Elegant Spring Color Palette */
-:root {
-    --primary-color: #5b7056; /* Deep Sage Green */
-    --accent-color: #d4a3a3;  /* Dusty Rose */
-    --secondary-bg: #f8f6f0;  /* Soft Warm Cream */
-    --text-color: #4a4a4a;    /* Soft Charcoal */
-    --bg-color: #ffffff;      /* Clean White */
-}
 
 /* RESET */
 body {
