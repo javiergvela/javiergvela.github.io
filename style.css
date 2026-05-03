@@ -215,3 +215,27 @@ footer {
         transform: translateY(0);
     }
 }
+#song-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#song-form input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#song-list p {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#countdown {
+    margin-top: 15px;
+    font-size: 18px;
+    opacity: 0.8;
+}
