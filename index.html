@@ -12,209 +12,106 @@
 </head>
 <body>
 
-    <!-- 🌍 Selector idioma -->
-    <div class="lang-switch">
-        <button onclick="setLang('en')" id="btn-en">🇺🇸</button>
-        <button onclick="setLang('es')" id="btn-es">🇪🇸</button>
+<!-- 🌍 idioma -->
+<div class="lang-switch">
+    <button onclick="setLang('en')" id="btn-en">🇺🇸</button>
+    <button onclick="setLang('es')" id="btn-es">🇪🇸</button>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>Lily & Javier</h1>
+
+        <p data-lang="en">June 5th, 2027 · Toledo</p>
+        <p data-lang="es">5 de junio de 2027 · Toledo</p>
+
+        <div id="countdown"></div>
+
+        <a href="#rsvp" class="btn primary-btn">
+            RSVP
+        </a>
     </div>
+</header>
 
-    <div id="content">
+<main>
 
-        <header class="hero fade">
-            <div class="hero-content">
-                <h1>Lily & Javier</h1>
+<!-- STORY -->
+<section class="section">
+    <h2 data-lang="en">Our Story</h2>
+    <h2 data-lang="es">Nuestra Historia</h2>
 
-                <p class="date" data-lang="en">Saturday, June 5th, 2027</p>
-                <p class="date" data-lang="es">Sábado, 5 de junio de 2027</p>
+    <p data-lang="en">
+        We met in Basel, and what started as a simple coffee turned into a lifetime story.
+    </p>
+    <p data-lang="es">
+        Nos conocimos en Basilea, y lo que empezó con un café se convirtió en toda una historia.
+    </p>
+</section>
 
-                <p class="location">Toledo, Spain</p>
-            </div>
-        </header>
+<!-- EVENTS -->
+<section class="section alt">
+    <h2 data-lang="en">The Day</h2>
+    <h2 data-lang="es">El Día</h2>
 
-        <main>
+    <div class="timeline">
 
-            <section id="our-story" class="card fade">
-                <h2 data-lang="en">Our Story</h2>
-                <h2 data-lang="es">Nuestra Historia</h2>
+        <div>
+            <h3 data-lang="en">Ceremony</h3>
+            <h3 data-lang="es">Ceremonia</h3>
+            <p>12:00 · Monasterio San Juan de los Reyes</p>
+        </div>
 
-                <div class="story-content">
+        <div>
+            <h3 data-lang="en">Reception</h3>
+            <h3 data-lang="es">Celebración</h3>
+            <p>17:30 · Cigarral de las Mercedes</p>
+        </div>
 
-                    <h3 data-lang="en">How We Met</h3>
-                    <h3 data-lang="es">Cómo nos conocimos</h3>
+    </div>
+</section>
 
-                    <p data-lang="en">
-                        We first crossed paths at a local coffee shop right here in Basel. What started as a conversation about the terrible weather quickly turned into hours of talking. Five years, three apartments, and one adopted dog later, we couldn't be happier to take this next step.
-                    </p>
-                    <p data-lang="es">
-                        Nos conocimos por primera vez en una cafetería en Basilea. Lo que empezó como una conversación sobre el mal tiempo se convirtió rápidamente en horas hablando. Cinco años, tres pisos y un perro adoptado después, no podemos estar más felices de dar este paso.
-                    </p>
-
-                    <h3 data-lang="en">What We Love</h3>
-                    <h3 data-lang="es">Lo que nos encanta</h3>
-
-                    <p data-lang="en">
-                        When we aren't working, you can usually find us hiking in the Swiss Alps, attempting to cook complicated Italian recipes, or arguing over which movie to watch on a Friday night.
-                    </p>
-                    <p data-lang="es">
-                        Cuando no estamos trabajando, normalmente nos encontrarás haciendo senderismo en los Alpes suizos, intentando cocinar recetas italianas complicadas o discutiendo qué película ver un viernes por la noche.
-                    </p>
-
-                </div>
-            </section>
-
-            <section id="gallery" class="card fade">
-                <h2 data-lang="en">Moments Together</h2>
-                <h2 data-lang="es">Momentos juntos</h2>
-
-                <p data-lang="en">A few of our favorite memories.</p>
-                <p data-lang="es">Algunos de nuestros recuerdos favoritos.</p>
-
-                <div class="photo-grid">
-                    <img src="IMG_0883.jpeg" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-                    <img src="IMG_2191.jpeg" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-                    <img src="IMG_9951.jpeg" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-                    <img src="GPTempDownload.JPG" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-                </div>
-            </section>
-
-            <div class="events-wrapper">
-
-                <section id="ceremony" class="card split-card fade">
-                    <h2 data-lang="en">The Ceremony</h2>
-                    <h2 data-lang="es">La Ceremonia</h2>
-
-                    <p><strong>Monasterio de San Juan de los Reyes</strong></p>
-                    <p>C. de los Reyes Católicos, 17, 45002, Toledo</p>
-
-                    <p data-lang="en">
-                        <em>Please arrive by 11:30 AM. The ceremony will begin at 12:00 PM.</em>
-                    </p>
-                    <p data-lang="es">
-                        <em>Por favor llegad a las 11:30. La ceremonia comenzará a las 12:00.</em>
-                    </p>
-                </section>
-
-                <section id="reception" class="card split-card fade">
-                    <h2 data-lang="en">The Reception</h2>
-                    <h2 data-lang="es">La Celebración</h2>
-
-                    <p><strong>Cigarral de las Mercedes</strong></p>
-                    <p>Ctra. Piedrabuena, 72, 45004 Toledo</p>
-
-                    <p data-lang="en">
-                        <em>Join us at 5:30 PM for cocktails and hors d'oeuvres, followed by dinner and dancing.</em>
-                    </p>
-                    <p data-lang="es">
-                        <em>Os esperamos a las 17:30 para cóctel, seguido de cena y baile.</em>
-                    </p>
-                </section>
-
-            </div>
-<section class="card fade">
+<!-- MAP -->
+<section class="section">
     <h2 data-lang="en">Location</h2>
     <h2 data-lang="es">Ubicación</h2>
 
-    <iframe 
-        src="https://www.google.com/maps?q=Monasterio+San+Juan+de+los+Reyes+Toledo&output=embed"
-        width="100%" height="300" style="border:0; border-radius:10px;">
-    </iframe>
+    <iframe src="https://www.google.com/maps?q=Toledo&output=embed"></iframe>
 </section>
-            <section id="gifts" class="card fade">
-                <h2 data-lang="en">Gifts</h2>
-                <h2 data-lang="es">Regalos</h2>
 
-                <p data-lang="en">
-                    Your presence is the greatest gift we could ask for! However, if you wish to contribute to our honeymoon fund, you can do so below.
-                </p>
-                <p data-lang="es">
-                    ¡Vuestra presencia es el mejor regalo! Pero si queréis contribuir a nuestra luna de miel, podéis hacerlo aquí.
-                </p>
-
-                <a href="YOUR_PAYPAL_OR_REVOLUT_LINK_HERE" class="btn secondary-btn" target="_blank"
-                   data-lang="en">Contribute to our Honeymoon</a>
-
-                <a href="YOUR_PAYPAL_OR_REVOLUT_LINK_HERE" class="btn secondary-btn" target="_blank"
-                   data-lang="es">Contribuir a la luna de miel</a>
-
-                <p data-lang="en"><small><em>For bank transfers, check your invitation.</em></small></p>
-                <p data-lang="es"><small><em>Para transferencias, consultad la invitación.</em></small></p>
-            </section>
-
-            <section id="rsvp" class="card fade">
-                <h2>RSVP</h2>
-
-                <p data-lang="en">
-                    Please let us know if you can make it by March 1st, 2027.
-                </p>
-                <p data-lang="es">
-                    Por favor confirmad asistencia antes del 1 de marzo de 2027.
-                </p>
-
-                <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn primary-btn" target="_blank"
-                   data-lang="en">RSVP via Google Forms</a>
-
-                <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn primary-btn" target="_blank"
-                   data-lang="es">Confirmar asistencia</a>
-            </section>
-
-        </main>
-<section class="card fade">
+<!-- MUSIC -->
+<section class="section alt">
 
     <h2 data-lang="en">Music Requests</h2>
     <h2 data-lang="es">Sugerencias musicales</h2>
 
     <form id="song-form">
-        <input type="text" id="name" placeholder="Your name / Tu nombre" required>
+        <input type="text" id="name" placeholder="Name / Nombre" required>
         <input type="text" id="song" placeholder="Song / Canción" required>
         <input type="text" id="artist" placeholder="Artist / Artista">
 
-        <button type="submit" class="btn primary-btn">
-            Submit
-        </button>
+        <button class="btn primary-btn">Submit</button>
     </form>
 
     <div id="song-list"></div>
 
 </section>
-        <footer class="fade">
-            <p>Made with ❤️ by Lily & Javier</p>
-        </footer>
 
-    </div>
+<!-- RSVP -->
+<section id="rsvp" class="section">
+    <h2>RSVP</h2>
 
-    <script>
-        function detectLanguage() {
-            const saved = localStorage.getItem("lang");
-            if (saved) return saved;
+    <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn primary-btn">
+        Confirm attendance
+    </a>
+</section>
 
-            const browserLang = navigator.language;
-            return browserLang.startsWith("es") ? "es" : "en";
-        }
+</main>
 
-        function setLang(lang) {
-            localStorage.setItem("lang", lang);
-
-            document.getElementById("content").classList.add("fade-out");
-
-            setTimeout(() => {
-                updateLang();
-                document.getElementById("content").classList.remove("fade-out");
-            }, 200);
-        }
-
-        function updateLang() {
-            const lang = detectLanguage();
-
-            document.querySelectorAll("[data-lang]").forEach(el => {
-                el.style.display = (el.dataset.lang === lang) ? "block" : "none";
-            });
-
-            document.getElementById("btn-en").classList.toggle("active", lang === "en");
-            document.getElementById("btn-es").classList.toggle("active", lang === "es");
-        }
-
-        updateLang();
-    </script>
+<footer>
+    <p>Lily & Javier · 2027</p>
+</footer>
 
 </body>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
