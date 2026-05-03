@@ -255,6 +255,8 @@ a{text-decoration:none}
   .photo-grid{grid-template-columns:1fr;grid-template-rows:repeat(4,220px)}
 }
 </style>
+<!-- Hide English by default before JS loads — prevents flash of both languages -->
+<style>[data-lang="en"]{display:none}</style>
 </head>
 <body>
 
@@ -268,7 +270,8 @@ a{text-decoration:none}
 <header class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Toledo, Spain · June 5, 2027</p>
+    <p class="hero-eyebrow" data-lang="es">Toledo, España · 5 de junio de 2027</p>
+    <p class="hero-eyebrow" data-lang="en">Toledo, Spain · June 5, 2027</p>
     <h1 class="hero-title">Lily <span class="amp">&amp;</span> Javier</h1>
     <div class="divider-floral">
       <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
