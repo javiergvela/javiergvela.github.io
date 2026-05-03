@@ -7,8 +7,7 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-<p id="countdown"></p>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -18,92 +17,76 @@
     <button onclick="setLang('es')" id="btn-es">🇪🇸</button>
 </div>
 
-<!-- HERO -->
 <header class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
         <h1>Lily & Javier</h1>
 
-        <p data-lang="en">June 5th, 2027 · Toledo</p>
-        <p data-lang="es">5 de junio de 2027 · Toledo</p>
+        <p data-lang="en">Saturday, June 5th, 2027</p>
+        <p data-lang="es">Sábado, 5 de junio de 2027</p>
 
-        <div id="countdown"></div>
+        <p>Toledo, Spain</p>
 
-        <a href="#rsvp" class="btn primary-btn">
-            RSVP
-        </a>
+        <p id="countdown"></p>
     </div>
 </header>
 
 <main>
 
-<!-- STORY -->
-<section class="section">
+<section class="card">
     <h2 data-lang="en">Our Story</h2>
     <h2 data-lang="es">Nuestra Historia</h2>
 
     <p data-lang="en">
-        We met in Basel, and what started as a simple coffee turned into a lifetime story.
+        We met in Basel and built a life full of adventures.
     </p>
     <p data-lang="es">
-        Nos conocimos en Basilea, y lo que empezó con un café se convirtió en toda una historia.
+        Nos conocimos en Basilea y construimos una vida llena de aventuras.
     </p>
 </section>
 
-<!-- EVENTS -->
-<section class="section alt">
-    <h2 data-lang="en">The Day</h2>
-    <h2 data-lang="es">El Día</h2>
+<section class="card">
+    <h2 data-lang="en">The Ceremony</h2>
+    <h2 data-lang="es">La Ceremonia</h2>
 
-    <div class="timeline">
+    <p><strong>Monasterio de San Juan de los Reyes</strong></p>
+    <p>C. de los Reyes Católicos, Toledo</p>
 
-        <div>
-            <h3 data-lang="en">Ceremony</h3>
-            <h3 data-lang="es">Ceremonia</h3>
-            <p>12:00 · Monasterio San Juan de los Reyes</p>
-        </div>
-
-        <div>
-            <h3 data-lang="en">Reception</h3>
-            <h3 data-lang="es">Celebración</h3>
-            <p>17:30 · Cigarral de las Mercedes</p>
-        </div>
-
-    </div>
+    <p data-lang="en">Arrive 11:30 · Starts 12:00</p>
+    <p data-lang="es">Llegada 11:30 · Comienza 12:00</p>
 </section>
 
-<!-- MAP -->
-<section class="section">
-    <h2 data-lang="en">Location</h2>
-    <h2 data-lang="es">Ubicación</h2>
+<section class="card">
+    <h2 data-lang="en">The Reception</h2>
+    <h2 data-lang="es">La Celebración</h2>
 
-    <iframe src="https://www.google.com/maps?q=Toledo&output=embed"></iframe>
+    <p><strong>Cigarral de las Mercedes</strong></p>
+
+    <p data-lang="en">17:30 Cocktails, dinner & party</p>
+    <p data-lang="es">17:30 Cóctel, cena y fiesta</p>
 </section>
 
-<!-- MUSIC -->
-<section class="section alt">
-
+<!-- 🎵 SONGS -->
+<section class="card">
     <h2 data-lang="en">Music Requests</h2>
     <h2 data-lang="es">Sugerencias musicales</h2>
 
     <form id="song-form">
-        <input type="text" id="name" placeholder="Name / Nombre" required>
-        <input type="text" id="song" placeholder="Song / Canción" required>
-        <input type="text" id="artist" placeholder="Artist / Artista">
+        <input id="name" placeholder="Name / Nombre">
+        <input id="song" placeholder="Song / Canción">
+        <input id="artist" placeholder="Artist / Artista">
 
-        <button class="btn primary-btn">Submit</button>
+        <button class="btn">Submit</button>
     </form>
 
     <div id="song-list"></div>
-
 </section>
 
-<!-- RSVP -->
-<section id="rsvp" class="section">
+<section class="card">
     <h2>RSVP</h2>
 
-    <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn primary-btn">
-        Confirm attendance
+    <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn">
+        RSVP
     </a>
 </section>
 
@@ -113,16 +96,15 @@
     <p>Lily & Javier · 2027</p>
 </footer>
 
-</body>
-const supabase = window.supabase.createClient(
-  "https://lrojhwzcreikjjauwzzm.supabase.co/rest/v1/",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxyb2pod3pjcmVpa2pqYXV3enptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3ODUxNzAsImV4cCI6MjA5MzM2MTE3MH0.5fWlWTy55SoMUR3IMtW8nlD4OO6T5hkIafQowMjbW0c"
-);
+<!-- JS -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 <script>
-const supabase = window.supabase.createClient("TU_URL","TU_KEY");
+const supabase = window.supabase.createClient(
+  "TU_SUPABASE_URL",
+  "TU_ANON_KEY"
+);
 
 // idioma
 function setLang(lang){
@@ -159,11 +141,16 @@ async function loadSongs(){
 document.getElementById("song-form").addEventListener("submit", async e=>{
  e.preventDefault();
 
- await supabase.from("songs").insert([{
-  name: name.value,
-  song: song.value,
-  artist: artist.value
- }]);
+ const name = document.getElementById("name").value.trim();
+ const song = document.getElementById("song").value.trim();
+ const artist = document.getElementById("artist").value.trim();
+
+ if(!name || !song){
+  alert("Please fill all required fields");
+  return;
+ }
+
+ await supabase.from("songs").insert([{name,song,artist}]);
 
  e.target.reset();
  loadSongs();
@@ -171,4 +158,6 @@ document.getElementById("song-form").addEventListener("submit", async e=>{
 
 loadSongs();
 </script>
+
+</body>
 </html>
