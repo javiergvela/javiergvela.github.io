@@ -256,6 +256,37 @@ a{text-decoration:none}
 
 /* ── Music ── */
 .music-section{background:var(--cream)}
+.autocomplete-wrap{position:relative}
+.autocomplete-list{
+  display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;
+  background:white;border:1px solid #e0d9cf;border-radius:6px;
+  box-shadow:0 8px 24px rgba(43,39,34,.12);z-index:50;overflow:hidden;max-height:280px;overflow-y:auto;
+}
+.autocomplete-list.open{display:block}
+.autocomplete-item{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;cursor:pointer;border-bottom:1px solid var(--ivory);
+  transition:background .15s;
+}
+.autocomplete-item:last-child{border-bottom:none}
+.autocomplete-item:hover{background:var(--cream)}
+.autocomplete-item img{
+  width:36px;height:36px;border-radius:4px;object-fit:cover;
+  flex-shrink:0;background:var(--ivory);
+}
+.autocomplete-item-info{display:flex;flex-direction:column;gap:2px;min-width:0}
+.autocomplete-item-title{font-family:var(--ff-serif);font-size:15px;font-weight:400;color:var(--charcoal);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.autocomplete-item-artist{font-size:12px;font-weight:300;color:var(--warm-grey);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.autocomplete-searching{padding:14px 16px;font-size:13px;color:var(--warm-grey);font-weight:300;text-align:center}
+.song-preview{
+  display:flex;align-items:center;gap:12px;
+  background:var(--ivory);border:1px solid var(--rose-lt);border-radius:6px;
+  padding:12px 16px;margin-bottom:16px;
+}
+.song-preview-info{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.song-preview-clear{background:none;border:none;cursor:pointer;color:var(--warm-grey);font-size:14px;padding:4px;transition:color .2s}
+.song-preview-clear:hover{color:var(--rose)}
+.song-error{background:#fdf0ef;border:1px solid var(--rose-lt);border-radius:6px;padding:12px 16px;font-size:13px;color:var(--rose);margin-bottom:12px}
 .song-form-wrap{
   background:white;border-radius:4px;padding:40px;
   box-shadow:0 2px 28px rgba(43,39,34,.06);text-align:left;margin-bottom:32px;
@@ -321,34 +352,63 @@ a{text-decoration:none}
 
 /* ══════════════ RESPONSIVE ══════════════ */
 @media(max-width:768px){
-  .hero-title{font-size:52px}
-  .hero-countdown{gap:14px;font-size:28px}
-  .lang-switch{top:14px;right:14px;padding:5px 10px}
+  /* Hero */
+  .hero-title{font-size:48px}
+  .hero-countdown{gap:12px;font-size:26px}
+  .hero-eyebrow{font-size:10px;letter-spacing:.16em}
+  .hero-cta{padding:12px 28px;font-size:10px}
+  /* Lang */
+  .lang-switch{top:14px;right:14px}
+  .lang-switch button{padding:5px 10px;font-size:11px}
+  /* Shared */
+  .section{padding:60px 18px}
+  .section-title{font-size:30px}
+  .section-sub{font-size:14px;margin-bottom:32px}
+  /* Story */
   .story-grid{grid-template-columns:1fr;gap:14px}
-  .story-block{padding:28px 22px}
+  .story-block{padding:26px 20px}
+  /* Gallery */
   .photo-grid{
     grid-template-columns:1fr 1fr;
-    grid-template-rows:180px 180px 180px;
+    grid-template-rows:160px 160px 160px;
     padding:0 4px;gap:4px;
   }
   .photo-item.tall{grid-row:span 1}
+  /* Events */
   .events-grid{grid-template-columns:1fr;gap:14px}
   .events-flower{display:none}
-  .event-card{padding:30px 22px}
+  .event-card{padding:28px 20px}
+  .event-card h3{font-size:22px}
+  /* Travel */
   .travel-grid{grid-template-columns:1fr}
+  .travel-card{padding:26px 20px}
+  /* Hotels */
   .hotels-grid{grid-template-columns:1fr}
+  .hotel-card{padding:26px 20px}
+  /* Dresscode */
   .dresscode-grid{grid-template-columns:1fr}
-  .form-row.two-col{grid-template-columns:1fr}
-  .song-form-wrap{padding:26px 18px}
+  .dresscode-card{padding:28px 22px}
+  /* FAQ */
+  .faq-q{font-size:15px;padding:18px 20px}
+  .faq-a{padding:0 20px}
+  .faq-item.open .faq-a{padding:0 20px 18px}
+  /* Music */
+  .song-form-wrap{padding:24px 18px}
   .song-from{display:none}
-  .section{padding:68px 18px}
+  /* RSVP */
   .rsvp-section{padding:80px 20px}
-  .rsvp-counter{gap:28px}
-  .rsvp-counter-num{font-size:40px}
+  .rsvp-title{font-size:26px}
+  /* Footer */
+  .footer{padding:48px 20px}
+  .footer-monogram{font-size:28px}
 }
 @media(max-width:420px){
-  .hero-title{font-size:40px}
-  .photo-grid{grid-template-columns:1fr;grid-template-rows:repeat(4,220px)}
+  .hero-title{font-size:38px}
+  .hero-countdown{gap:8px;font-size:22px}
+  .divider-floral{width:140px}
+  .photo-grid{grid-template-columns:1fr;grid-template-rows:repeat(4,200px)}
+  .events-grid{gap:12px}
+  .section{padding:48px 16px}
 }
 </style>
 <!-- Hide English by default before JS loads — prevents flash of both languages -->
@@ -732,21 +792,31 @@ a{text-decoration:none}
         <div class="form-group">
           <label data-lang="en">Your Name</label>
           <label data-lang="es">Tu Nombre</label>
-          <input id="inp-name" type="text" placeholder="e.g. María García">
+          <input id="inp-name" type="text" placeholder="e.g. María García" autocomplete="off">
         </div>
       </div>
-      <div class="form-row two-col">
+      <div class="form-row">
         <div class="form-group">
-          <label data-lang="en">Song Title</label>
-          <label data-lang="es">Título de la canción</label>
-          <input id="inp-song" type="text" placeholder="e.g. Perfect">
-        </div>
-        <div class="form-group">
-          <label data-lang="en">Artist</label>
-          <label data-lang="es">Artista</label>
-          <input id="inp-artist" type="text" placeholder="e.g. Ed Sheeran">
+          <label data-lang="en">Search Song or Artist</label>
+          <label data-lang="es">Busca canción o artista</label>
+          <div class="autocomplete-wrap">
+            <input id="inp-search" type="text" placeholder="e.g. Bad Bunny, Perfect..." autocomplete="off">
+            <div id="autocomplete-list" class="autocomplete-list"></div>
+          </div>
         </div>
       </div>
+      <!-- Selected song preview -->
+      <div id="song-preview" class="song-preview" style="display:none">
+        <span class="song-note">♪</span>
+        <div class="song-preview-info">
+          <span id="preview-title" class="song-title"></span>
+          <span id="preview-artist" class="song-artist"></span>
+        </div>
+        <button class="song-preview-clear" onclick="clearSelection()">✕</button>
+      </div>
+      <input type="hidden" id="inp-song">
+      <input type="hidden" id="inp-artist">
+      <div id="song-error" class="song-error" style="display:none"></div>
       <button class="btn-primary" id="song-submit">
         <span data-lang="en">Add to Playlist ♪</span>
         <span data-lang="es">Añadir a la lista ♪</span>
@@ -762,13 +832,6 @@ a{text-decoration:none}
   <p class="rsvp-eyebrow" data-lang="es">Esperamos celebrarlo contigo</p>
   <h2 class="rsvp-title" data-lang="en">Kindly Reply by March 1st, 2027</h2>
   <h2 class="rsvp-title" data-lang="es">Por favor, confirma antes del 1 de marzo de 2027</h2>
-  <div class="rsvp-counter">
-    <div>
-      <div class="rsvp-counter-num" id="rsvp-count">—</div>
-      <div class="rsvp-counter-label" data-lang="en">guests confirmed</div>
-      <div class="rsvp-counter-label" data-lang="es">invitados confirmados</div>
-    </div>
-  </div>
   <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn-primary btn-light">RSVP</a>
 </section>
 
@@ -829,29 +892,138 @@ a{text-decoration:none}
   setInterval(updateCountdown,60000);
   updateCountdown();
 
-  // ── Songs ─────────────────────────────────────
+  // ── Music: iTunes Autocomplete ─────────────────
+  let selectedSong=null;
+  let debounceTimer=null;
+
+  const searchInput=document.getElementById("inp-search");
+  const autocompleteList=document.getElementById("autocomplete-list");
+
+  searchInput.addEventListener("input",()=>{
+    clearTimeout(debounceTimer);
+    const q=searchInput.value.trim();
+    if(q.length<2){autocompleteList.classList.remove("open");return}
+    autocompleteList.innerHTML=`<div class="autocomplete-searching">🔍 Buscando...</div>`;
+    autocompleteList.classList.add("open");
+    debounceTimer=setTimeout(()=>searchSongs(q),400);
+  });
+
+  async function searchSongs(q){
+    try{
+      const url=`https://itunes.apple.com/search?term=${encodeURIComponent(q)}&entity=song&limit=8&country=es`;
+      const res=await fetch(url);
+      const data=await res.json();
+      if(!data.results||!data.results.length){
+        autocompleteList.innerHTML=`<div class="autocomplete-searching">Sin resultados. Prueba con otro término.</div>`;
+        return;
+      }
+      autocompleteList.innerHTML=data.results.map((r,i)=>`
+        <div class="autocomplete-item" onclick="selectSong(${i})" data-idx="${i}"
+          data-song="${escHtml(r.trackName)}" data-artist="${escHtml(r.artistName)}"
+          data-art="${escHtml(r.artworkUrl60||'')}">
+          <img src="${r.artworkUrl60||''}" alt="" onerror="this.style.display='none'">
+          <div class="autocomplete-item-info">
+            <span class="autocomplete-item-title">${escHtml(r.trackName)}</span>
+            <span class="autocomplete-item-artist">${escHtml(r.artistName)}</span>
+          </div>
+        </div>`).join("");
+    }catch(e){
+      autocompleteList.innerHTML=`<div class="autocomplete-searching">Error al buscar. Inténtalo de nuevo.</div>`;
+    }
+  }
+
+  function escHtml(s){
+    return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  function selectSong(idx){
+    const item=autocompleteList.querySelector(`[data-idx="${idx}"]`);
+    selectedSong={song:item.dataset.song, artist:item.dataset.artist};
+    document.getElementById("inp-song").value=selectedSong.song;
+    document.getElementById("inp-artist").value=selectedSong.artist;
+    document.getElementById("preview-title").textContent=selectedSong.song;
+    document.getElementById("preview-artist").textContent=selectedSong.artist;
+    document.getElementById("song-preview").style.display="flex";
+    searchInput.value="";
+    autocompleteList.classList.remove("open");
+    hideSongError();
+  }
+
+  function clearSelection(){
+    selectedSong=null;
+    document.getElementById("inp-song").value="";
+    document.getElementById("inp-artist").value="";
+    document.getElementById("song-preview").style.display="none";
+    searchInput.value="";
+  }
+
+  // Close autocomplete when clicking outside
+  document.addEventListener("click",e=>{
+    if(!e.target.closest(".autocomplete-wrap"))autocompleteList.classList.remove("open");
+  });
+
+  function showSongError(msg){
+    const el=document.getElementById("song-error");
+    el.textContent=msg; el.style.display="block";
+  }
+  function hideSongError(){
+    document.getElementById("song-error").style.display="none";
+  }
+
+  // ── Songs: Load & Insert ───────────────────────
   async function loadSongs(){
-    const {data}=await db.from("songs").select("*").order("created_at",{ascending:false});
+    const {data,error}=await db.from("songs").select("*").order("created_at",{ascending:false});
+    if(error){console.error("Load error:",error);return}
     const list=document.getElementById("song-list");
     if(!data||!data.length){list.innerHTML="";return}
-    list.innerHTML=data.map(s=>
-      `<div class="song-item">
+    list.innerHTML=data.map(s=>`
+      <div class="song-item">
         <span class="song-note">♪</span>
-        <span class="song-title">${s.song}</span>
-        <span class="song-artist">${s.artist||""}</span>
-        <span class="song-from">${s.name}</span>
-      </div>`
-    ).join("");
+        <span class="song-title">${escHtml(s.song)}</span>
+        <span class="song-artist">${escHtml(s.artist||"")}</span>
+        <span class="song-from">${escHtml(s.name)}</span>
+      </div>`).join("");
   }
+
   document.getElementById("song-submit").addEventListener("click",async()=>{
+    hideSongError();
     const nameVal=document.getElementById("inp-name").value.trim();
     const songVal=document.getElementById("inp-song").value.trim();
     const artistVal=document.getElementById("inp-artist").value.trim();
-    if(!nameVal||!songVal)return alert("Please fill in your name and the song title.");
-    await db.from("songs").insert([{name:nameVal,song:songVal,artist:artistVal}]);
-    ["inp-name","inp-song","inp-artist"].forEach(id=>document.getElementById(id).value="");
+    const lang=localStorage.getItem("lang")||"es";
+
+    if(!nameVal){
+      showSongError(lang==="es"?"Por favor escribe tu nombre.":"Please enter your name.");return;
+    }
+    if(!songVal){
+      showSongError(lang==="es"?"Por favor selecciona una canción de la lista.":"Please select a song from the list.");return;
+    }
+
+    const btn=document.getElementById("song-submit");
+    btn.disabled=true;
+    btn.style.opacity="0.6";
+
+    const {error}=await db.from("songs").insert([{name:nameVal,song:songVal,artist:artistVal}]);
+
+    btn.disabled=false;
+    btn.style.opacity="1";
+
+    if(error){
+      console.error("Insert error:",error);
+      // Most likely cause: RLS enabled. Show helpful message.
+      showSongError(
+        lang==="es"
+          ? "⚠️ Error al guardar. Comprueba que la tabla 'songs' tiene RLS desactivado o una política INSERT pública en Supabase."
+          : "⚠️ Error saving. Check that the 'songs' table has RLS disabled or a public INSERT policy in Supabase."
+      );
+      return;
+    }
+
+    document.getElementById("inp-name").value="";
+    clearSelection();
     loadSongs();
   });
+
   loadSongs();
 
   // ── FAQ ───────────────────────────────────────
@@ -861,17 +1033,6 @@ a{text-decoration:none}
     document.querySelectorAll(".faq-item.open").forEach(i=>i.classList.remove("open"));
     if(!isOpen)item.classList.add("open");
   }
-
-  // ── RSVP Counter ──────────────────────────────
-  async function loadRsvpCount(){
-    try{
-      const {count}=await db.from("rsvps").select("*",{count:"exact",head:true});
-      document.getElementById("rsvp-count").textContent=count||"0";
-    }catch(e){
-      document.getElementById("rsvp-count").textContent="—";
-    }
-  }
-  loadRsvpCount();
 
   // ── Scroll reveal ─────────────────────────────
   function revealAll(){
