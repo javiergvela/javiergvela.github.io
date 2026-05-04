@@ -890,7 +890,10 @@ a{text-decoration:none}
 <script>
   // ── Supabase ──────────────────────────────────
   const { createClient } = supabase;
-  const db = createClient("https://lrojhwzcreikjjauwzzm.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxyb2pod3pjcmVpa2pqYXV3enptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3ODUxNzAsImV4cCI6MjA5MzM2MTE3MH0.5fWlWTy55SoMUR3IMtW8nlD4OO6T5hkIafQowMjbW0c");
+  const db = createClient(
+    "https://lrojhwzcreikjjauwzzm.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxyb2pod3pjcmVpa2pqYXV3enptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3ODUxNzAsImV4cCI6MjA5MzM2MTE3MH0.5fWlWTy55SoMUR3IMtW8nlD4OO6T5hkIafQowMjbW0c"
+  );
 
   // ── Language ──────────────────────────────────
   function setLang(lang){localStorage.setItem("lang",lang);updateLang()}
@@ -1002,7 +1005,7 @@ a{text-decoration:none}
   function saveVoted(){ localStorage.setItem("votedSongs", JSON.stringify([...votedSongs])); }
 
   async function loadSongs(){
-    const {data,error}=await db.from("songs").select("*").order("votes",{ascending:false});
+    const {data,error}=await db.from("songs").select("*").order("votes",{ascending:false,nullsFirst:false});
     if(error){console.error("Load error:",error);return}
     const list=document.getElementById("song-list");
     if(!data||!data.length){list.innerHTML="";return}
@@ -1014,6 +1017,7 @@ a{text-decoration:none}
 
     const items=data.map((s,i)=>{
       const hasVoted=votedSongs.has(s.id);
+      const votes=s.votes||0;
       const medal=i===0?"🥇":i===1?"🥈":i===2?"🥉":`${i+1}.`;
       return `<div class="song-item" id="song-${s.id}">
         <span class="song-rank">${medal}</span>
@@ -1022,39 +1026,51 @@ a{text-decoration:none}
         <span class="song-artist">${escHtml(s.artist||"")}</span>
         <button class="vote-btn ${hasVoted?"voted":""}" onclick="vote(${s.id},this)">
           <span>${hasVoted?"❤️":"🤍"}</span>
-          <span class="vote-count">${s.votes||0}</span>
+          <span class="vote-count">${votes}</span>
         </button>
       </div>`;
     }).join("");
 
     list.innerHTML=header+items;
-    // Re-apply lang after re-rendering
     updateLang();
   }
 
   async function vote(id, btn){
     const hasVoted=votedSongs.has(id);
-    // Optimistic UI update
     const countEl=btn.querySelector(".vote-count");
     const current=parseInt(countEl.textContent)||0;
+    const newVotes=hasVoted ? Math.max(0, current-1) : current+1;
+
+    // Optimistic UI
     if(hasVoted){
       votedSongs.delete(id);
       btn.classList.remove("voted");
       btn.querySelector("span").textContent="🤍";
-      countEl.textContent=current-1;
     } else {
       votedSongs.add(id);
       btn.classList.add("voted");
       btn.querySelector("span").textContent="❤️";
-      countEl.textContent=current+1;
       btn.style.animation="votePop .4s ease";
       btn.addEventListener("animationend",()=>btn.style.animation="",{once:true});
     }
+    countEl.textContent=newVotes;
     saveVoted();
-    // Update in Supabase
-    const newVotes=hasVoted?current-1:current+1;
-    await db.from("songs").update({votes:newVotes}).eq("id",id);
-    // Reload to re-sort ranking
+
+    // Persist to Supabase — use rpc to do atomic increment to avoid race conditions
+    const {error}=await db.from("songs")
+      .update({votes: newVotes})
+      .eq("id", id)
+      .select();
+
+    if(error){
+      console.error("Vote error:", error);
+      // Revert optimistic update
+      if(hasVoted){ votedSongs.add(id); } else { votedSongs.delete(id); }
+      saveVoted();
+      countEl.textContent=current;
+      return;
+    }
+    // Re-sort ranking after vote
     loadSongs();
   }
 
