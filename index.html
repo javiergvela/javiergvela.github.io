@@ -163,6 +163,97 @@ a{text-decoration:none}
 .events-flower{color:var(--sage-lt);opacity:.65;display:flex;justify-content:center}
 .events-flower svg{width:38px;height:86px}
 
+/* ── Getting There ── */
+.travel-section{background:var(--cream)}
+.travel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;text-align:left}
+.travel-card{background:var(--ivory);border-radius:4px;padding:36px 30px}
+.travel-icon{font-size:28px;margin-bottom:16px}
+.travel-card h3{font-family:var(--ff-serif);font-size:20px;font-weight:400;color:var(--charcoal);margin-bottom:10px}
+.travel-card p{font-size:13.5px;font-weight:300;color:var(--warm-grey);line-height:1.85;margin-bottom:12px}
+.travel-link{
+  font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rose);border-bottom:1px solid var(--rose-lt);padding-bottom:2px;
+  transition:color .2s;display:inline-block;
+}
+.travel-link:hover{color:var(--charcoal)}
+
+/* ── Hotels ── */
+.hotels-section{background:var(--ivory)}
+.hotels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;text-align:left}
+.hotel-card{
+  background:white;border-radius:4px;padding:36px 30px;
+  box-shadow:0 2px 20px rgba(43,39,34,.05);
+  display:flex;flex-direction:column;gap:8px;
+}
+.hotel-stars{color:var(--gold);font-size:13px;letter-spacing:2px}
+.hotel-card h3{font-family:var(--ff-serif);font-size:20px;font-weight:400;color:var(--charcoal)}
+.hotel-dist{font-size:12px;font-weight:400;color:var(--sage);letter-spacing:.06em}
+.hotel-card p{font-size:13.5px;font-weight:300;color:var(--warm-grey);line-height:1.8;flex:1}
+.hotel-price{font-size:12px;font-weight:500;color:var(--gold);letter-spacing:.05em}
+.hotel-btn{
+  display:inline-block;margin-top:8px;font-family:var(--ff-sans);font-size:10px;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--rose);
+  border:1px solid var(--rose-lt);border-radius:20px;padding:8px 18px;
+  transition:background .25s,color .25s;text-align:center;
+}
+.hotel-btn:hover{background:var(--rose);color:white}
+
+/* ── Dresscode ── */
+.dresscode-section{background:var(--cream)}
+.dresscode-inner{max-width:720px;margin:0 auto;text-align:center}
+.dresscode-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:52px}
+.dresscode-card{background:var(--ivory);border-radius:4px;padding:40px 32px;text-align:left;border-top:3px solid var(--rose-lt)}
+.dresscode-card h3{font-family:var(--ff-serif);font-size:22px;font-weight:400;color:var(--charcoal);margin-bottom:16px}
+.dresscode-card p{font-size:13.5px;font-weight:300;color:var(--warm-grey);line-height:1.85;margin-bottom:10px}
+.dresscode-palette{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.swatch{width:28px;height:28px;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.dresscode-note{
+  margin-top:36px;padding:24px 28px;background:white;border-radius:4px;
+  border-left:3px solid var(--gold);font-size:13.5px;font-weight:300;
+  color:var(--warm-grey);line-height:1.85;text-align:left;
+}
+
+/* ── FAQ ── */
+.faq-section{background:var(--ivory)}
+.faq-list{margin-top:52px;display:flex;flex-direction:column;gap:2px;text-align:left}
+.faq-item{background:white;border-radius:4px;overflow:hidden}
+.faq-q{
+  width:100%;background:none;border:none;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px 28px;font-family:var(--ff-serif);font-size:18px;font-weight:400;
+  color:var(--charcoal);text-align:left;transition:background .2s;
+}
+.faq-q:hover{background:var(--cream)}
+.faq-arrow{font-size:14px;color:var(--rose);transition:transform .3s;flex-shrink:0;margin-left:16px}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .4s var(--ease-out),padding .3s;
+  font-size:14px;font-weight:300;color:var(--warm-grey);line-height:1.9;
+  padding:0 28px;
+}
+.faq-item.open .faq-a{max-height:300px;padding:0 28px 22px}
+
+/* ── RSVP counter ── */
+.rsvp-counter{
+  display:flex;justify-content:center;gap:48px;margin-bottom:48px;
+}
+.rsvp-counter-num{
+  font-family:var(--ff-serif);font-size:56px;font-weight:300;color:white;line-height:1;
+}
+.rsvp-counter-label{
+  font-family:var(--ff-sans);font-size:10px;font-weight:400;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);margin-top:6px;
+}
+
+/* ── Post-wedding ── */
+.postwedding-section{background:var(--cream);display:none}
+.postwedding-section.active{display:block}
+.thanks-text{
+  font-family:var(--ff-serif);font-size:clamp(20px,3vw,28px);font-weight:300;
+  font-style:italic;color:var(--warm-grey);line-height:1.8;
+  max-width:600px;margin:0 auto 48px;
+}
+
 /* ── Music ── */
 .music-section{background:var(--cream)}
 .song-form-wrap{
@@ -244,11 +335,16 @@ a{text-decoration:none}
   .events-grid{grid-template-columns:1fr;gap:14px}
   .events-flower{display:none}
   .event-card{padding:30px 22px}
+  .travel-grid{grid-template-columns:1fr}
+  .hotels-grid{grid-template-columns:1fr}
+  .dresscode-grid{grid-template-columns:1fr}
   .form-row.two-col{grid-template-columns:1fr}
   .song-form-wrap{padding:26px 18px}
   .song-from{display:none}
   .section{padding:68px 18px}
   .rsvp-section{padding:80px 20px}
+  .rsvp-counter{gap:28px}
+  .rsvp-counter-num{font-size:40px}
 }
 @media(max-width:420px){
   .hero-title{font-size:40px}
@@ -387,6 +483,237 @@ a{text-decoration:none}
   </div>
 </section>
 
+<!-- GETTING THERE -->
+<section class="section travel-section reveal" id="travel">
+  <div class="section-inner">
+    <span class="section-tag">
+      <span data-lang="en">Getting There</span>
+      <span data-lang="es">Cómo llegar</span>
+    </span>
+    <h2 class="section-title">
+      <span data-lang="en">Finding Your Way to Toledo</span>
+      <span data-lang="es">Cómo llegar a Toledo</span>
+    </h2>
+    <p class="section-sub" data-lang="en">Toledo is 70 km south of Madrid — easy to reach by train, car, or bus.</p>
+    <p class="section-sub" data-lang="es">Toledo está a 70 km al sur de Madrid — fácil de llegar en tren, coche o autobús.</p>
+    <div class="travel-grid">
+      <div class="travel-card">
+        <div class="travel-icon">🚆</div>
+        <h3 data-lang="en">By Train</h3>
+        <h3 data-lang="es">En Tren</h3>
+        <p data-lang="en">High-speed AVE from Madrid Atocha to Toledo in just 33 minutes. Trains run every hour. Book in advance on Renfe's website.</p>
+        <p data-lang="es">AVE de alta velocidad desde Madrid Atocha hasta Toledo en solo 33 minutos. Trenes cada hora. Reserva con antelación en Renfe.</p>
+        <a href="https://www.renfe.com" target="_blank" class="travel-link">renfe.com ↗</a>
+      </div>
+      <div class="travel-card">
+        <div class="travel-icon">🚗</div>
+        <h3 data-lang="en">By Car</h3>
+        <h3 data-lang="es">En Coche</h3>
+        <p data-lang="en">45 minutes from Madrid via the A-42 motorway. Parking available near the venue at Parking Corral de Don Diego (5 min walk).</p>
+        <p data-lang="es">45 minutos desde Madrid por la A-42. Aparcamiento cerca del Monasterio en Parking Corral de Don Diego (5 min a pie).</p>
+        <a href="https://maps.google.com/?q=Parking+Corral+Don+Diego+Toledo" target="_blank" class="travel-link">
+          <span data-lang="en">View parking ↗</span>
+          <span data-lang="es">Ver aparcamiento ↗</span>
+        </a>
+      </div>
+      <div class="travel-card">
+        <div class="travel-icon">🚌</div>
+        <h3 data-lang="en">Shuttle Bus</h3>
+        <h3 data-lang="es">Autobús</h3>
+        <p data-lang="en">We're organising a shuttle bus from Madrid Atocha on the wedding day. Details will be sent by email closer to the date.</p>
+        <p data-lang="es">Organizamos un autobús desde Madrid Atocha el día de la boda. Los detalles se enviarán por email cuando se acerque la fecha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOTELS -->
+<section class="section hotels-section reveal" id="hotels">
+  <div class="section-inner">
+    <span class="section-tag">
+      <span data-lang="en">Where to Stay</span>
+      <span data-lang="es">Dónde alojarse</span>
+    </span>
+    <h2 class="section-title">
+      <span data-lang="en">Our Recommended Hotels</span>
+      <span data-lang="es">Hoteles recomendados</span>
+    </h2>
+    <p class="section-sub" data-lang="en">We've handpicked these hotels for their location and charm. Mention "Lily & Javier Wedding" when booking.</p>
+    <p class="section-sub" data-lang="es">Hemos seleccionado estos hoteles por su ubicación y encanto. Menciona "Boda Lily & Javier" al reservar.</p>
+    <div class="hotels-grid">
+      <div class="hotel-card">
+        <div class="hotel-stars">★★★★★</div>
+        <h3>Hospes Palacio de los Patos</h3>
+        <div class="hotel-dist" data-lang="en">📍 8 min walk from venue</div>
+        <div class="hotel-dist" data-lang="es">📍 8 min a pie del Monasterio</div>
+        <p data-lang="en">A 16th-century palace turned luxury hotel. Stunning views of Toledo's skyline and an excellent breakfast.</p>
+        <p data-lang="es">Un palacio del siglo XVI convertido en hotel de lujo. Vistas impresionantes de Toledo y un desayuno excelente.</p>
+        <a href="https://www.hospes.com" target="_blank" class="hotel-btn">
+          <span data-lang="en">Book Now</span>
+          <span data-lang="es">Reservar</span>
+        </a>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-stars">★★★★</div>
+        <h3>Hotel Abad Toledo</h3>
+        <div class="hotel-dist" data-lang="en">📍 5 min walk from venue</div>
+        <div class="hotel-dist" data-lang="es">📍 5 min a pie del Monasterio</div>
+        <p data-lang="en">Charming boutique hotel in the heart of the Jewish Quarter. Perfect central location within Toledo's historic walls.</p>
+        <p data-lang="es">Hotel boutique con encanto en el corazón del Barrio Judío. Ubicación central inmejorable dentro de las murallas históricas.</p>
+        <a href="https://www.hotelabad.com" target="_blank" class="hotel-btn">
+          <span data-lang="en">Book Now</span>
+          <span data-lang="es">Reservar</span>
+        </a>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-stars">★★★</div>
+        <h3>Hotel Santa Isabel</h3>
+        <div class="hotel-dist" data-lang="en">📍 3 min walk from venue</div>
+        <div class="hotel-dist" data-lang="es">📍 3 min a pie del Monasterio</div>
+        <p data-lang="en">A cosy and affordable option right next to San Juan de los Reyes. Simple, clean rooms with a warm atmosphere.</p>
+        <p data-lang="es">Una opción acogedora y asequible justo al lado del Monasterio. Habitaciones sencillas y limpias con ambiente cálido.</p>
+        <a href="https://www.google.com/search?q=Hotel+Santa+Isabel+Toledo" target="_blank" class="hotel-btn">
+          <span data-lang="en">Book Now</span>
+          <span data-lang="es">Reservar</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DRESSCODE -->
+<section class="section dresscode-section reveal" id="dresscode">
+  <div class="dresscode-inner">
+    <span class="section-tag">
+      <span data-lang="en">Dress Code</span>
+      <span data-lang="es">Código de vestimenta</span>
+    </span>
+    <h2 class="section-title">
+      <span data-lang="en">Garden Formal</span>
+      <span data-lang="es">Elegancia de jardín</span>
+    </h2>
+    <p class="section-sub" data-lang="en">We'd love for our guests to dress up and celebrate with us in style — think summer elegance.</p>
+    <p class="section-sub" data-lang="es">Nos encantaría que nuestros invitados se vistieran elegantemente — piensa en elegancia de verano.</p>
+    <div class="dresscode-grid">
+      <div class="dresscode-card">
+        <h3 data-lang="en">👗 For Her</h3>
+        <h3 data-lang="es">👗 Para ellas</h3>
+        <p data-lang="en">Midi or maxi dresses, elegant jumpsuits, or a formal skirt with blouse. Heels or elegant flats — cobblestones ahead!</p>
+        <p data-lang="es">Vestidos midi o maxi, monos elegantes, o falda con blusa formal. Tacones o bailarinas elegantes — ¡hay adoquines!</p>
+        <div class="dresscode-palette">
+          <div class="swatch" style="background:#d4a5a0" title="Rose"></div>
+          <div class="swatch" style="background:#b5c9b2" title="Sage"></div>
+          <div class="swatch" style="background:#ddc99a" title="Gold"></div>
+          <div class="swatch" style="background:#c8b8d0" title="Lavender"></div>
+          <div class="swatch" style="background:#f2ede4" title="Ivory"></div>
+        </div>
+      </div>
+      <div class="dresscode-card">
+        <h3 data-lang="en">🤵 For Him</h3>
+        <h3 data-lang="es">🤵 Para ellos</h3>
+        <p data-lang="en">Suit and tie or a blazer with dress trousers. Light-coloured linen suits are warmly welcomed for a June day in Toledo.</p>
+        <p data-lang="es">Traje con corbata o blazer con pantalón de vestir. Los trajes de lino en colores claros son perfectos para junio en Toledo.</p>
+        <div class="dresscode-palette">
+          <div class="swatch" style="background:#8c9db5" title="Navy"></div>
+          <div class="swatch" style="background:#c4b59a" title="Sand"></div>
+          <div class="swatch" style="background:#7a9177" title="Sage"></div>
+          <div class="swatch" style="background:#6b6258" title="Taupe"></div>
+        </div>
+      </div>
+    </div>
+    <div class="dresscode-note">
+      <span data-lang="en">⚠️ Please avoid white, off-white and ivory — and save the black tie for another night. Thank you!</span>
+      <span data-lang="es">⚠️ Por favor, evita el blanco, crudo y marfil — y guarda el esmoquin para otra noche. ¡Gracias!</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section reveal" id="faq">
+  <div class="section-inner">
+    <span class="section-tag">FAQ</span>
+    <h2 class="section-title">
+      <span data-lang="en">Frequently Asked Questions</span>
+      <span data-lang="es">Preguntas frecuentes</span>
+    </h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-lang="en">Is there a vegetarian / vegan menu option?</span>
+          <span data-lang="es">¿Hay opción de menú vegetariano / vegano?</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <span data-lang="en">Yes! Please indicate your dietary requirements in the RSVP form and we'll make sure the kitchen has you covered.</span>
+          <span data-lang="es">¡Sí! Por favor, indica tus necesidades dietéticas en el formulario de confirmación y nos aseguraremos de que la cocina lo tenga en cuenta.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-lang="en">Can I bring my children?</span>
+          <span data-lang="es">¿Puedo traer a mis hijos?</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <span data-lang="en">We love your little ones, but we've chosen to make this an adults-only celebration so everyone can relax and enjoy the night. We hope you understand!</span>
+          <span data-lang="es">Queremos mucho a vuestros pequeños, pero hemos decidido que sea una celebración solo para adultos para que todos puedan relajarse y disfrutar. ¡Esperamos que lo entendáis!</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-lang="en">What time does the party end?</span>
+          <span data-lang="es">¿A qué hora termina la fiesta?</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <span data-lang="en">We plan to dance until 2:00 AM. After that, the night is yours — Toledo's old town has several great bars for those who want to keep going!</span>
+          <span data-lang="es">Planeamos bailar hasta las 2:00 de la madrugada. Después, la noche es vuestra — ¡el casco antiguo de Toledo tiene varios bares geniales para los que quieran seguir!</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-lang="en">Can I take photos during the ceremony?</span>
+          <span data-lang="es">¿Puedo hacer fotos durante la ceremonia?</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <span data-lang="en">We kindly ask for an "unplugged ceremony" — please keep your phones away during the vows so you can be fully present. Our photographer will capture every moment. You're free to snap away at the reception!</span>
+          <span data-lang="es">Os pedimos una "ceremonia sin móviles" — por favor guardad los teléfonos durante los votos para poder estar plenamente presentes. Nuestra fotógrafa capturará cada momento. ¡En la celebración podéis hacer todas las fotos que queráis!</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-lang="en">Is there a gift registry?</span>
+          <span data-lang="es">¿Tenéis lista de bodas?</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <span data-lang="en">Your presence is the greatest gift. If you'd like to contribute something, we have a honeymoon fund — details will be shared by email.</span>
+          <span data-lang="es">Vuestra presencia es el mejor regalo. Si queréis contribuir con algo, tenemos un fondo para la luna de miel — los detalles se compartirán por email.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-lang="en">Who can I contact with more questions?</span>
+          <span data-lang="es">¿Con quién puedo contactar si tengo más preguntas?</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          <span data-lang="en">Drop us a message at hello@lilyandjavier.com — we'll get back to you as soon as we can!</span>
+          <span data-lang="es">Escríbenos a hello@lilyandjavier.com — ¡os responderemos lo antes posible!</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- MUSIC -->
 <section class="section music-section reveal" id="music">
   <div class="section-inner narrow">
@@ -435,7 +762,32 @@ a{text-decoration:none}
   <p class="rsvp-eyebrow" data-lang="es">Esperamos celebrarlo contigo</p>
   <h2 class="rsvp-title" data-lang="en">Kindly Reply by March 1st, 2027</h2>
   <h2 class="rsvp-title" data-lang="es">Por favor, confirma antes del 1 de marzo de 2027</h2>
+  <div class="rsvp-counter">
+    <div>
+      <div class="rsvp-counter-num" id="rsvp-count">—</div>
+      <div class="rsvp-counter-label" data-lang="en">guests confirmed</div>
+      <div class="rsvp-counter-label" data-lang="es">invitados confirmados</div>
+    </div>
+  </div>
   <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn-primary btn-light">RSVP</a>
+</section>
+
+<!-- POST-WEDDING (hidden until activated) -->
+<section class="section postwedding-section" id="postwedding">
+  <div class="section-inner">
+    <span class="section-tag">
+      <span data-lang="en">Thank You</span>
+      <span data-lang="es">Gracias</span>
+    </span>
+    <h2 class="section-title">
+      <span data-lang="en">What a Day.</span>
+      <span data-lang="es">Qué día tan especial.</span>
+    </h2>
+    <p class="thanks-text" data-lang="en">"Thank you for being part of the most beautiful day of our lives. Your love, laughter and presence made it all perfect. We are so grateful."</p>
+    <p class="thanks-text" data-lang="es">"Gracias por ser parte del día más bonito de nuestras vidas. Vuestro amor, risas y presencia lo hicieron todo perfecto. Estamos muy agradecidos."</p>
+    <p class="section-sub" data-lang="en">Photos coming soon — we'll share the gallery link here and by email.</p>
+    <p class="section-sub" data-lang="es">Las fotos llegarán pronto — compartiremos el enlace a la galería aquí y por email.</p>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -501,6 +853,25 @@ a{text-decoration:none}
     loadSongs();
   });
   loadSongs();
+
+  // ── FAQ ───────────────────────────────────────
+  function toggleFaq(btn){
+    const item=btn.closest(".faq-item");
+    const isOpen=item.classList.contains("open");
+    document.querySelectorAll(".faq-item.open").forEach(i=>i.classList.remove("open"));
+    if(!isOpen)item.classList.add("open");
+  }
+
+  // ── RSVP Counter ──────────────────────────────
+  async function loadRsvpCount(){
+    try{
+      const {count}=await db.from("rsvps").select("*",{count:"exact",head:true});
+      document.getElementById("rsvp-count").textContent=count||"0";
+    }catch(e){
+      document.getElementById("rsvp-count").textContent="—";
+    }
+  }
+  loadRsvpCount();
 
   // ── Scroll reveal ─────────────────────────────
   function revealAll(){
