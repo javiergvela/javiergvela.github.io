@@ -63,7 +63,17 @@ a{text-decoration:none}
 .hero-eyebrow{
   font-family:var(--ff-sans);font-size:11px;font-weight:400;
   letter-spacing:.25em;text-transform:uppercase;color:var(--gold-lt);
-  margin-bottom:22px;animation:hReveal 1.4s .15s var(--ease-out) both;
+  margin-top:16px;margin-bottom:0;animation:hReveal 1.4s .15s var(--ease-out) both;
+}
+.story-countdown{
+  display:flex;justify-content:center;gap:32px;
+  font-family:var(--ff-serif);font-size:clamp(38px,6vw,64px);font-weight:300;
+  color:var(--charcoal);margin:32px 0 52px;
+}
+.story-countdown span{display:flex;flex-direction:column;align-items:center}
+.story-countdown small{
+  font-family:var(--ff-sans);font-size:10px;font-weight:400;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--warm-grey);margin-top:4px;
 }
 .hero-title{
   font-family:var(--ff-serif);font-size:clamp(62px,11vw,108px);
@@ -451,8 +461,6 @@ a{text-decoration:none}
 <header class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow" data-lang="es">Toledo, España · 5 de junio de 2027</p>
-    <p class="hero-eyebrow" data-lang="en">Toledo, Spain · June 5, 2027</p>
     <h1 class="hero-title">Lily <span class="amp">&amp;</span> Javier</h1>
     <div class="divider-floral">
       <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
@@ -463,8 +471,9 @@ a{text-decoration:none}
         <line x1="125" y1="10" x2="200" y2="10" stroke="currentColor" stroke-width="0.5"/>
       </svg>
     </div>
-    <p id="countdown" class="hero-countdown"></p>
-    <a href="#events" class="hero-cta">
+    <p class="hero-eyebrow" data-lang="es">Toledo, España · 5 de junio de 2027</p>
+    <p class="hero-eyebrow" data-lang="en">Toledo, Spain · June 5, 2027</p>
+    <a href="#story" class="hero-cta">
       <span data-lang="en">Explore the Day</span>
       <span data-lang="es">Descubre el Día</span>
     </a>
@@ -482,6 +491,7 @@ a{text-decoration:none}
       <span data-lang="en">A Love Written in the Stars</span>
       <span data-lang="es">Un amor escrito en las estrellas</span>
     </h2>
+    <p id="countdown" class="story-countdown"></p>
     <div class="story-grid">
       <div class="story-block">
         <div class="story-icon">☕</div>
@@ -914,8 +924,12 @@ a{text-decoration:none}
     const d=Math.floor(diff/(864e5));
     const h=Math.floor((diff%864e5)/36e5);
     const m=Math.floor((diff%36e5)/6e4);
-    document.getElementById("countdown").innerHTML=
-      `<span>${d}<small>días</small></span><span>${h}<small>h</small></span><span>${m}<small>min</small></span>`;
+    const el=document.getElementById("countdown");
+    if(el) el.innerHTML=
+      `<span>${d}<small data-lang="es">días</small><small data-lang="en">days</small></span>`+
+      `<span>${h}<small>h</small></span>`+
+      `<span>${m}<small>min</small></span>`;
+    updateLang();
   }
   setInterval(updateCountdown,60000);
   updateCountdown();
@@ -1056,18 +1070,12 @@ a{text-decoration:none}
     countEl.textContent=Math.max(0,current+delta);
     saveVoted();
 
-    // Atomic increment via SQL function — avoids race conditions and null issues
-    const {error}=await db.rpc("increment_votes",{song_id:id, delta:delta});
-    if(error){
-      console.error("Vote RPC error:",error);
-      // Revert
-      if(hasVoted){votedSongs.add(id);}else{votedSongs.delete(id);}
-      saveVoted();
-      countEl.textContent=current;
-      btn.classList.toggle("voted",hasVoted);
-      btn.querySelector("span").textContent=hasVoted?"❤️":"🤍";
-      return;
-    }
+    // Fetch real current value from DB, then update
+    const {data:row, error:fetchErr}=await db.from("songs").select("votes").eq("id",id).single();
+    if(fetchErr){ console.error("Vote fetch error:",fetchErr); loadSongs(); return; }
+    const realVotes=Math.max(0,(row.votes||0)+delta);
+    const {error:updateErr}=await db.from("songs").update({votes:realVotes}).eq("id",id);
+    if(updateErr){ console.error("Vote update error:",updateErr); }
     loadSongs();
   }
 
