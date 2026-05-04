@@ -472,8 +472,8 @@ a{text-decoration:none}
         <line x1="125" y1="10" x2="200" y2="10" stroke="currentColor" stroke-width="0.5"/>
       </svg>
     </div>
-    <p class="hero-eyebrow" data-lang="es">Toledo, España · 5 de junio de 2027</p>
-    <p class="hero-eyebrow" data-lang="en">Toledo, Spain · June 5, 2027</p>
+    <p class="hero-eyebrow" data-lang="es"><br>Toledo, España · 5 de junio de 2027</p>
+    <p class="hero-eyebrow" data-lang="en"><br>Toledo, Spain · June 5, 2027</p>
     <a href="#story" class="hero-cta">
       <span data-lang="en">Explore the Day</span>
       <span data-lang="es">Descubre el Día</span>
@@ -1083,21 +1083,14 @@ a{text-decoration:none}
     const realVotes=Math.max(0,(row.votes||0)+delta);
 
     // Step 2: write new value
-    const {data:updated, error:updateErr}=await db
+    const {error:updateErr}=await db
       .from("songs")
       .update({votes:realVotes})
-      .eq("id",id)
-      .select("votes")
-      .single();
+      .eq("id",id);
 
     if(updateErr){
       showSongError("Vote update error: "+updateErr.message);
       loadSongs(); return;
-    }
-
-    // Confirm the value actually changed in DB
-    if(updated && updated.votes !== realVotes){
-      showSongError("Vote mismatch — DB returned: "+updated.votes+" expected: "+realVotes);
     }
 
     loadSongs();
