@@ -64,6 +64,11 @@ a{text-decoration:none}
   position:absolute;inset:0;
   background:linear-gradient(to bottom,rgba(28,20,16,.35) 0%,rgba(28,20,16,.55) 60%,rgba(28,20,16,.72) 100%);
 }
+@media(max-width:768px){
+  .hero-overlay{
+    background:linear-gradient(to bottom,rgba(28,20,16,.52) 0%,rgba(28,20,16,.58) 50%,rgba(28,20,16,.75) 100%);
+  }
+}
 .hero-content{position:relative;z-index:2;color:white;padding:20px;animation:hReveal 1.4s var(--ease-out) both;margin-top:-60px}
 @keyframes hReveal{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 .hero-eyebrow{
@@ -87,6 +92,9 @@ a{text-decoration:none}
   animation:hReveal 1.4s .1s var(--ease-out) both;
 }
 .hero-title .amp{font-style:italic;color:var(--rose-lt);font-size:.85em}
+@media(max-width:768px){
+  .hero-title{text-shadow:0 2px 24px rgba(0,0,0,0.55),0 1px 6px rgba(0,0,0,0.4)}
+}
 .divider-floral{
   width:200px;margin:0 auto 28px;color:var(--gold-lt);opacity:.75;
   animation:hReveal 1.4s .25s var(--ease-out) both;
