@@ -51,12 +51,14 @@ a{text-decoration:none}
 /* ── Hero ── */
 .hero{
   position:relative;height:100svh;min-height:560px;
-  background:url('IMG_9951.jpeg') center-left/cover no-repeat;
-  background-position: 35% center;
+  background-image:url('IMG_9951.jpeg');
+  background-size:cover;
+  background-position:35% center;
+  background-repeat:no-repeat;
   display:flex;align-items:center;justify-content:center;text-align:center;
 }
 @media(max-width:768px){
-  .hero{background-position: 30% center;}
+  .hero{background-position:30% center;}
 }
 .hero-overlay{
   position:absolute;inset:0;
