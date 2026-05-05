@@ -51,8 +51,12 @@ a{text-decoration:none}
 /* ── Hero ── */
 .hero{
   position:relative;height:100svh;min-height:560px;
-  background:url('IMG_9951.jpeg') center/cover no-repeat;
+  background:url('IMG_9951.jpeg') center-left/cover no-repeat;
+  background-position: 35% center;
   display:flex;align-items:center;justify-content:center;text-align:center;
+}
+@media(max-width:768px){
+  .hero{background-position: 30% center;}
 }
 .hero-overlay{
   position:absolute;inset:0;
@@ -63,7 +67,7 @@ a{text-decoration:none}
 .hero-eyebrow{
   font-family:var(--ff-sans);font-size:11px;font-weight:400;
   letter-spacing:.25em;text-transform:uppercase;color:var(--gold-lt);
-  margin-top:64px;margin-bottom:0;animation:hReveal 1.4s .45s var(--ease-out) both;
+  margin-top:90px;margin-bottom:0;animation:hReveal 1.4s .45s var(--ease-out) both;
 }
 .story-countdown{
   display:flex;justify-content:center;gap:32px;
@@ -99,7 +103,7 @@ a{text-decoration:none}
   display:inline-block;font-family:var(--ff-sans);font-size:10.5px;font-weight:500;
   letter-spacing:.22em;text-transform:uppercase;color:white;
   border:1px solid rgba(255,255,255,.5);border-radius:30px;padding:14px 38px;
-  margin-top:56px;
+  margin-top:80px;
   transition:background .3s,border-color .3s;
   animation:hReveal 1.4s .65s var(--ease-out) both;
 }
@@ -343,8 +347,10 @@ a{text-decoration:none}
   color:var(--gold);width:18px;text-align:center;flex-shrink:0;
 }
 .song-note{color:var(--rose);font-size:14px;flex-shrink:0}
-.song-title{font-family:var(--ff-serif);font-size:15px;font-weight:400;color:var(--charcoal);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.song-artist{color:var(--warm-grey);font-weight:300;font-size:12px;flex-shrink:0;max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.song-info{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.song-title{font-family:var(--ff-serif);font-size:15px;font-weight:400;color:var(--charcoal);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.song-artist{color:var(--warm-grey);font-weight:300;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.song-from{font-size:11px;color:var(--sage);letter-spacing:.03em;flex-shrink:0;font-style:italic}
 .vote-btn{
   display:flex;align-items:center;gap:5px;flex-shrink:0;
   background:white;border:1px solid var(--rose-lt);
@@ -1037,8 +1043,11 @@ a{text-decoration:none}
       return `<div class="song-item" id="song-${s.id}">
         <span class="song-rank">${medal}</span>
         <span class="song-note">♪</span>
-        <span class="song-title">${escHtml(s.song)}</span>
-        <span class="song-artist">${escHtml(s.artist||"")}</span>
+        <div class="song-info">
+          <span class="song-title">${escHtml(s.song)}</span>
+          <span class="song-artist">${escHtml(s.artist||"")}</span>
+        </div>
+        <span class="song-from">— ${escHtml(s.name||"")}</span>
         <button class="vote-btn ${hasVoted?"voted":""}" onclick="vote(${s.id},${votes},this)">
           <span>${hasVoted?"❤️":"🤍"}</span>
           <span class="vote-count">${votes}</span>
