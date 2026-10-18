@@ -7,7 +7,7 @@
   <meta name="description" content="Lily &amp; Javier se casan el 5 de junio de 2027 en Toledo. Toda la información de la boda: ceremonia, celebración, alojamiento, dress code y confirmación de asistencia.">
   <!-- Web privada: que no aparezca en Google. Bórralo si quieres que se indexe. -->
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#2b2722">
+  <meta name="theme-color" content="#2f3a2d">
 
   <!-- Vista previa al compartir el enlace por WhatsApp, Instagram, email… -->
   <meta property="og:type" content="website">
@@ -19,7 +19,7 @@
   <meta property="og:locale:alternate" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%232b2722'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-style='italic' font-size='26' fill='%23ddc99a' text-anchor='middle'%3EL%26amp;J%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%232f3a2d'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-style='italic' font-size='26' fill='%23f3d5cc' text-anchor='middle'%3EL%26amp;J%3C/text%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,21 +45,21 @@
    LILY & JAVIER · Toledo · 05.06.2027
    ═══════════════════════════════════════════ */
 :root{
-  --cream:#faf8f4;
-  --ivory:#f2ede4;
-  --paper:#fffdf9;
-  --rose:#c4877e;
-  --rose-lt:#e8c5bf;
-  --rose-ink:#a3625a;
-  --sage:#7a9177;
-  --sage-lt:#b5c9b2;
-  --gold:#b8975a;
-  --gold-lt:#ddc99a;
-  --gold-ink:#8a6c38;
-  --ink:#2b2722;
-  --ink-deep:#201c19;
-  --muted:#6b6258;
-  --line:#e4dccf;
+  --cream:#fbfaf5;
+  --ivory:#f0f3ea;
+  --paper:#fffefb;
+  --rose:#d79a8d;
+  --rose-lt:#f3d5cc;
+  --rose-ink:#a8625a;
+  --sage:#7f9a78;
+  --sage-lt:#cddcc6;
+  --gold:#c3a660;
+  --gold-lt:#e9dba8;
+  --gold-ink:#86703a;
+  --ink:#2f3a2d;
+  --ink-deep:#232c22;
+  --muted:#66705f;
+  --line:#e2e6d6;
   --ff-serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --ff-sans:'Jost',system-ui,-apple-system,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
@@ -149,7 +149,7 @@ html[lang="en"] [data-lang="es"]{display:none!important}
   color:#fff;transition:background .45s var(--ease),color .45s var(--ease),box-shadow .45s var(--ease);
 }
 .nav.scrolled,.menu-open .nav{
-  background:rgba(250,248,244,.9);color:var(--ink);
+  background:rgba(251,250,245,.9);color:var(--ink);
   -webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);
   box-shadow:0 1px 0 var(--line);
 }
@@ -197,8 +197,8 @@ html[lang="en"] [data-lang="es"]{display:none!important}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:1;
   background:
-    radial-gradient(ellipse at center,rgba(28,20,16,.2) 0%,rgba(28,20,16,.55) 75%),
-    linear-gradient(to bottom,rgba(28,20,16,.45) 0%,rgba(28,20,16,.25) 40%,rgba(28,20,16,.75) 100%);
+    radial-gradient(ellipse at center,rgba(30,40,28,.2) 0%,rgba(30,40,28,.55) 75%),
+    linear-gradient(to bottom,rgba(30,40,28,.45) 0%,rgba(30,40,28,.25) 40%,rgba(30,40,28,.75) 100%);
 }
 .hero-content{position:relative;z-index:2;padding:calc(var(--nav-h) + 20px) 24px 90px;max-width:900px}
 .hero-content > *{animation:rise 1.4s var(--ease) both}
@@ -257,15 +257,15 @@ html[lang="en"] [data-lang="es"]{display:none!important}
 .gallery-item.tall{grid-row:span 2;border-radius:999px 999px var(--radius) var(--radius)}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s}
 .gallery-item:hover img{transform:scale(1.05)}
-.gallery-item::after{content:"";position:absolute;inset:0;background:rgba(43,39,34,0);transition:background .5s}
-.gallery-item:hover::after{background:rgba(43,39,34,.08)}
+.gallery-item::after{content:"";position:absolute;inset:0;background:rgba(47,58,45,0);transition:background .5s}
+.gallery-item:hover::after{background:rgba(47,58,45,.08)}
 
 .lightbox{
   margin:auto;border:none;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;
   display:none;align-items:center;justify-content:center;
 }
 .lightbox[open]{display:flex}
-.lightbox::backdrop{background:rgba(20,17,15,.92)}
+.lightbox::backdrop{background:rgba(22,29,21,.92)}
 .lightbox img{max-width:min(92vw,1200px);max-height:86vh;object-fit:contain;border-radius:2px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
 .lb-btn{
   position:fixed;color:#fff;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
@@ -281,7 +281,7 @@ html[lang="en"] [data-lang="es"]{display:none!important}
 .venues{display:grid;grid-template-columns:1fr 60px 1fr;align-items:stretch;gap:0 24px}
 .venue{
   position:relative;background:var(--paper);padding:64px 44px 48px;text-align:center;
-  border-radius:999px 999px var(--radius) var(--radius);box-shadow:0 1px 0 var(--line),0 24px 60px -30px rgba(43,39,34,.18);
+  border-radius:999px 999px var(--radius) var(--radius);box-shadow:0 1px 0 var(--line),0 24px 60px -30px rgba(47,58,45,.18);
 }
 .venue::before{
   content:"";position:absolute;inset:12px;border:1px solid var(--line);border-radius:999px 999px 2px 2px;pointer-events:none;
@@ -301,6 +301,11 @@ html[lang="en"] [data-lang="es"]{display:none!important}
 .tl-time .icon{width:22px;height:22px;color:var(--gold-ink)}
 .tl-dot{display:block;width:9px;height:9px;margin:9px auto 16px;border-radius:50%;background:var(--ivory);border:1px solid var(--gold);position:relative;z-index:1}
 .tl-what{font-size:12px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);line-height:1.6}
+.day-wish{max-width:640px;margin:88px auto 0;text-align:center}
+.day-wish .icon{display:block;width:22px;height:22px;color:var(--rose);margin:0 auto 18px}
+.day-wish h3{font-family:var(--ff-serif);font-weight:300;font-size:clamp(28px,3.6vw,38px);line-height:1.2;margin-bottom:16px}
+.day-wish h3 em{font-style:italic;color:var(--rose-ink)}
+.day-wish p{color:var(--muted);font-size:15.5px;line-height:1.9}
 .cal-actions{margin-top:72px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center}
 .cal-actions p{width:100%;text-align:center;font-family:var(--ff-serif);font-style:italic;font-size:19px;color:var(--muted);margin-bottom:6px}
 
@@ -310,7 +315,7 @@ html[lang="en"] [data-lang="es"]{display:none!important}
   background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:40px 34px;
   display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s var(--ease);
 }
-.card:hover{transform:translateY(-4px);box-shadow:0 22px 50px -28px rgba(43,39,34,.25)}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 50px -28px rgba(47,58,45,.25)}
 .card-icon{width:52px;height:52px;border-radius:50%;border:1px solid var(--gold-lt);display:grid;place-items:center;color:var(--gold-ink);margin-bottom:24px}
 .card-icon .icon{width:22px;height:22px}
 .card h3{font-family:var(--ff-serif);font-weight:400;font-size:24px;line-height:1.25;margin-bottom:10px}
@@ -322,6 +327,34 @@ html[lang="en"] [data-lang="es"]{display:none!important}
 .travel{background:var(--cream)}
 .hotels{background:var(--ivory)}
 .hotels .card{background:var(--paper)}
+.hotels-main{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:920px;margin:0 auto}
+.hotel-feature{padding:44px 40px}
+.card .hotel-tag{flex:none;
+  align-self:flex-start;margin-bottom:18px;padding:5px 14px;border-radius:30px;background:var(--ivory);
+  font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--rose-ink);
+}
+.hotel-feature h3{font-size:28px}
+.promo{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px;padding:14px 18px;
+  border:1px dashed var(--rose);border-radius:var(--radius);background:#fdf6f3;
+}
+.promo-label{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.promo-code{font-family:var(--ff-serif);font-size:21px;font-weight:500;letter-spacing:.12em;color:var(--ink);flex:1}
+.promo-copy{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-ink);padding:6px 12px;border:1px solid var(--rose-lt);border-radius:30px;transition:background .25s,color .25s}
+.promo-copy:hover,.promo-copy.done{background:var(--rose);border-color:var(--rose);color:#fff}
+.hotels-more{
+  display:flex;align-items:center;gap:18px;max-width:920px;margin:64px auto 22px;
+  font-family:var(--ff-serif);font-style:italic;font-weight:400;font-size:22px;color:var(--muted);
+}
+.hotels-more::before,.hotels-more::after{content:"";flex:1;height:1px;background:var(--line)}
+.hotels-alt{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:920px;margin:0 auto}
+.hotel-mini{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px 24px 22px;display:flex;flex-direction:column}
+.hotel-mini h4{font-family:var(--ff-serif);font-weight:400;font-size:19px;line-height:1.3;margin-bottom:6px}
+.hotel-mini p{font-size:13px;color:var(--muted);line-height:1.7;flex:1}
+.hotel-mini .link{margin-top:14px;align-self:flex-start}
+.hotels .note{max-width:920px}
+.note a{color:var(--rose-ink);border-bottom:1px solid var(--rose-lt)}
+.note a:hover{color:var(--ink);border-color:var(--ink)}
 
 /* Vestimenta */
 .dresscode{background:var(--cream)}
@@ -358,7 +391,7 @@ html[lang="en"] [data-lang="es"]{display:none!important}
 
 /* ── Música ── */
 .music{background:var(--cream)}
-.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:44px;margin-bottom:40px;box-shadow:0 24px 60px -40px rgba(43,39,34,.25)}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:44px;margin-bottom:40px;box-shadow:0 24px 60px -40px rgba(47,58,45,.25)}
 .field{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
 .field label{font-size:10px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
 .field input{
@@ -366,11 +399,11 @@ html[lang="en"] [data-lang="es"]{display:none!important}
   background:var(--cream);color:var(--ink);outline:none;transition:border-color .25s,background .25s;width:100%;
 }
 .field input:focus{border-color:var(--rose);background:#fff}
-.field input::placeholder{color:#bdb4a8}
+.field input::placeholder{color:#b4baa8}
 .ac-wrap{position:relative}
 .ac-list{
   display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:50;list-style:none;
-  background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 18px 40px rgba(43,39,34,.14);
+  background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 18px 40px rgba(47,58,45,.14);
   max-height:320px;overflow-y:auto;
 }
 .ac-list.open{display:block}
@@ -389,8 +422,8 @@ html[lang="en"] [data-lang="es"]{display:none!important}
 .selected-song button:hover{color:var(--rose-ink)}
 .form-msg{padding:12px 16px;border-radius:6px;font-size:13.5px;margin-bottom:18px}
 .form-msg[hidden]{display:none}
-.form-msg.error{background:#fbefed;color:var(--rose-ink);border:1px solid var(--rose-lt)}
-.form-msg.ok{background:#eef3ed;color:#4d6a4a;border:1px solid var(--sage-lt)}
+.form-msg.error{background:#fcf0ec;color:var(--rose-ink);border:1px solid var(--rose-lt)}
+.form-msg.ok{background:#edf3ea;color:#4d6a4a;border:1px solid var(--sage-lt)}
 
 .songs-head{display:flex;justify-content:space-between;align-items:baseline;padding:0 4px 14px;border-bottom:1px solid var(--gold-lt);margin-bottom:8px}
 .songs-head span{font-size:10px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
@@ -418,7 +451,7 @@ html[lang="en"] [data-lang="es"]{display:none!important}
 }
 .rsvp::before{
   content:"";position:absolute;left:50%;top:50%;width:min(560px,90vw);height:min(720px,120%);transform:translate(-50%,-50%);
-  border:1px solid rgba(221,201,154,.22);border-radius:999px 999px 0 0;pointer-events:none;
+  border:1px solid rgba(243,213,204,.22);border-radius:999px 999px 0 0;pointer-events:none;
 }
 .rsvp .eyebrow{color:var(--gold-lt)}
 .rsvp-title{font-family:var(--ff-serif);font-weight:300;font-size:clamp(38px,6vw,68px);line-height:1.05}
@@ -440,6 +473,14 @@ html[lang="en"] [data-lang="es"]{display:none!important}
 .footer-love{margin-top:6px;color:rgba(255,255,255,.3);letter-spacing:.14em;text-transform:none;font-family:var(--ff-serif);font-style:italic;font-size:15px}
 .to-top{display:inline-block;margin-top:30px;opacity:.6;transition:opacity .25s}
 .to-top:hover{opacity:1}
+
+/* ── Toques de primavera: velos muy suaves de flor de cerezo y pistacho ── */
+.day{background:
+  radial-gradient(ellipse 60% 50% at 0% 0%,rgba(243,213,204,.45),transparent 70%),
+  radial-gradient(ellipse 50% 45% at 100% 100%,rgba(205,220,198,.5),transparent 70%),
+  var(--ivory)}
+.rsvp{background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(127,154,120,.28),transparent 70%),var(--ink)}
+.thanks{background:radial-gradient(ellipse 60% 70% at 50% 100%,rgba(243,213,204,.4),transparent 70%),var(--cream)}
 
 /* ══════════════ RESPONSIVE ══════════════ */
 @media (max-width:1080px){
@@ -475,6 +516,9 @@ html[lang="en"] [data-lang="es"]{display:none!important}
   .tl-dot{margin:0 auto}
   .cards{grid-template-columns:1fr;max-width:520px;margin:0 auto}
   .dress-grid{grid-template-columns:1fr;max-width:520px}
+  .hotels-main,.hotels-alt{grid-template-columns:1fr;max-width:520px}
+  .hotels-more{max-width:520px;margin-top:48px}
+  .day-wish{margin-top:64px}
   .note{max-width:520px}
   .rsvp{padding:110px 0}
 }
@@ -493,7 +537,7 @@ html[lang="en"] [data-lang="es"]{display:none!important}
   .hero-actions .btn{min-width:240px}
   .gallery-grid{grid-auto-rows:170px}
   .venue{padding:56px 26px 40px}
-  .card,.dress-grid .card{padding:32px 24px}
+  .card,.dress-grid .card,.hotel-feature{padding:32px 24px}
   .panel{padding:28px 20px}
   .field input{font-size:16px} /* evita el zoom automático en iOS */
   .faq-item summary{font-size:18px;padding:22px 2px}
@@ -664,6 +708,13 @@ html[lang="en"] [data-lang="es"]{display:none!important}
       <li><span class="tl-time">01:00</span><span class="tl-dot"></span><span class="tl-what"><span data-lang="es">Último baile</span><span data-lang="en">Last dance</span></span></li>
     </ol>
 
+    <div class="day-wish reveal">
+      <svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>
+      <h3><span data-lang="es">Nuestro único deseo: <em>que lo deis todo</em></span><span data-lang="en">Our only wish: <em>give it your all</em></span></h3>
+      <p data-lang="es">Lo que más ilusión nos hace es veros disfrutar del día a tope. Venid con ganas de reír, brindar, emocionaros y bailar hasta que se apaguen las luces. ¡Ese día no hay que guardarse nada!</p>
+      <p data-lang="en">What we'd love most is to see you enjoy every minute of the day. Come ready to laugh, raise a glass, shed a happy tear and dance until the lights go out. Hold nothing back!</p>
+    </div>
+
     <div class="cal-actions reveal">
       <p><span data-lang="es">Guarda la fecha</span><span data-lang="en">Save the date</span></p>
       <a class="btn btn-outline" id="cal-google" href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#i-cal"/></svg>Google Calendar</a>
@@ -714,35 +765,76 @@ html[lang="en"] [data-lang="es"]{display:none!important}
       <p class="eyebrow"><span class="num">IV</span><span data-lang="es">Dónde alojarse</span><span data-lang="en">Where to stay</span></p>
       <h2 class="section-title"><span data-lang="es">Hoteles <em>recomendados</em></span><span data-lang="en">Recommended <em>hotels</em></span></h2>
       <svg class="ornament" aria-hidden="true"><use href="#ornament"/></svg>
-      <p class="lead" data-lang="es">Los hemos elegido por su ubicación y su encanto. Menciona «Boda Lily &amp; Javier» al reservar.</p>
-      <p class="lead" data-lang="en">Handpicked for their location and charm. Mention “Lily &amp; Javier Wedding” when booking.</p>
+      <p class="lead" data-lang="es">Junio es temporada alta en Toledo, así que os recomendamos reservar con antelación. Estos son los que más nos gustan por ubicación y encanto.</p>
+      <p class="lead" data-lang="en">June is high season in Toledo, so we recommend booking early. These are our favourites for location and charm.</p>
     </header>
-    <div class="cards">
-      <article class="card reveal">
-        <div class="stars" aria-label="5 estrellas">★★★★★</div>
-        <h3>Hospes Palacio de los Patos</h3>
-        <p class="card-meta"><svg class="icon"><use href="#i-pin"/></svg><span data-lang="es">8 min a pie del Monasterio</span><span data-lang="en">8 min walk from the Monastery</span></p>
-        <p data-lang="es">Un palacio del siglo XVI convertido en hotel de lujo. Vistas impresionantes y un desayuno excelente.</p>
-        <p data-lang="en">A 16th-century palace turned luxury hotel, with stunning views and an excellent breakfast.</p>
-        <a href="https://www.hospes.com" target="_blank" rel="noopener" class="link"><span data-lang="es">Reservar</span><span data-lang="en">Book now</span><svg class="icon"><use href="#i-out"/></svg></a>
+
+    <div class="hotels-main">
+      <article class="card hotel-feature reveal">
+        <p class="hotel-tag"><span data-lang="es">Descuento para invitados</span><span data-lang="en">Guest discount</span></p>
+        <h3>Hotel María Cristina</h3>
+        <p class="card-meta"><svg class="icon"><use href="#i-pin"/></svg><span data-lang="es">Junto a la Puerta de Bisagra · 20–25 min a pie del Monasterio</span><span data-lang="en">By the Puerta de Bisagra · 20–25 min walk to the Monastery</span></p>
+        <p data-lang="es">Un cuatro estrellas a las puertas del casco histórico y a pocos minutos de la estación de tren. Reservando desde su web con nuestro código, se os aplicará un descuento.</p>
+        <p data-lang="en">A four-star hotel at the gates of the old town, a few minutes from the train station. Book on their website with our code and you'll get a discount.</p>
+        <div class="promo">
+          <span class="promo-label"><span data-lang="es">Código</span><span data-lang="en">Code</span></span>
+          <code class="promo-code">HMCBODA2027</code>
+          <button type="button" class="promo-copy" data-copy="HMCBODA2027"><span data-lang="es">Copiar</span><span data-lang="en">Copy</span></button>
+        </div>
+        <a href="https://www.hotelmariacristina.com" target="_blank" rel="noopener" class="link"><span data-lang="es">Reservar en su web</span><span data-lang="en">Book on their website</span><svg class="icon"><use href="#i-out"/></svg></a>
       </article>
-      <article class="card reveal reveal-d1">
-        <div class="stars" aria-label="4 estrellas">★★★★</div>
-        <h3>Hotel Abad Toledo</h3>
-        <p class="card-meta"><svg class="icon"><use href="#i-pin"/></svg><span data-lang="es">5 min a pie del Monasterio</span><span data-lang="en">5 min walk from the Monastery</span></p>
-        <p data-lang="es">Hotel boutique con encanto y una ubicación inmejorable dentro de las murallas históricas.</p>
-        <p data-lang="en">A charming boutique hotel with an unbeatable location within Toledo's historic walls.</p>
-        <a href="https://www.hotelabad.com" target="_blank" rel="noopener" class="link"><span data-lang="es">Reservar</span><span data-lang="en">Book now</span><svg class="icon"><use href="#i-out"/></svg></a>
+      <article class="card hotel-feature reveal reveal-d1">
+        <p class="hotel-tag"><span data-lang="es">Junto a la iglesia</span><span data-lang="en">Next to the church</span></p>
+        <h3>Hotel San Juan de los Reyes</h3>
+        <p class="card-meta"><svg class="icon"><use href="#i-pin"/></svg><span data-lang="es">A un paso del Monasterio</span><span data-lang="en">Steps from the Monastery</span></p>
+        <p data-lang="es">Lo más cerca que se puede estar de la ceremonia: ideal para arreglarse con calma y llegar paseando, sin coche ni prisas.</p>
+        <p data-lang="en">As close to the ceremony as it gets — perfect for getting ready at your own pace and strolling over, no car or rush needed.</p>
+        <a href="https://www.hotelsanjuandelosreyes.com" target="_blank" rel="noopener" class="link"><span data-lang="es">Reservar</span><span data-lang="en">Book now</span><svg class="icon"><use href="#i-out"/></svg></a>
       </article>
-      <article class="card reveal reveal-d2">
-        <div class="stars" aria-label="3 estrellas">★★★</div>
-        <h3>Hotel Santa Isabel</h3>
-        <p class="card-meta"><svg class="icon"><use href="#i-pin"/></svg><span data-lang="es">3 min a pie del Monasterio</span><span data-lang="en">3 min walk from the Monastery</span></p>
-        <p data-lang="es">Una opción acogedora y asequible en pleno casco histórico. Habitaciones sencillas y un ambiente cálido.</p>
-        <p data-lang="en">A cosy, affordable option in the heart of the old town. Simple rooms and a warm atmosphere.</p>
-        <a href="https://www.google.com/search?q=Hotel+Santa+Isabel+Toledo" target="_blank" rel="noopener" class="link"><span data-lang="es">Reservar</span><span data-lang="en">Book now</span><svg class="icon"><use href="#i-out"/></svg></a>
+      <article class="card hotel-feature reveal">
+        <p class="hotel-tag"><span data-lang="es">Muy cerca de la iglesia</span><span data-lang="en">Close to the church</span></p>
+        <h3>Hotel Pintor el Greco</h3>
+        <p class="card-meta"><svg class="icon"><use href="#i-pin"/></svg><span data-lang="es">En la judería · 5 min a pie del Monasterio</span><span data-lang="en">In the Jewish Quarter · 5 min walk to the Monastery</span></p>
+        <p data-lang="es">Una casa toledana con encanto en plena judería, junto al Museo del Greco y a un paseo corto de la iglesia.</p>
+        <p data-lang="en">A charming traditional Toledo house in the heart of the Jewish Quarter, next to the El Greco Museum and a short walk from the church.</p>
+        <a href="https://www.hotelpintorelgreco.com" target="_blank" rel="noopener" class="link"><span data-lang="es">Reservar</span><span data-lang="en">Book now</span><svg class="icon"><use href="#i-out"/></svg></a>
+      </article>
+      <article class="card hotel-feature reveal reveal-d1">
+        <p class="hotel-tag"><span data-lang="es">En pleno centro</span><span data-lang="en">In the old town</span></p>
+        <h3>Hotel Carlos V</h3>
+        <p class="card-meta"><svg class="icon"><use href="#i-pin"/></svg><span data-lang="es">Cerca de Zocodover · 15 min a pie del Monasterio</span><span data-lang="en">Near Zocodover · 15 min walk to the Monastery</span></p>
+        <p data-lang="es">En el corazón del casco histórico, perfecto para disfrutar de Toledo antes y después de la boda, con todo a mano.</p>
+        <p data-lang="en">Right in the heart of the old town — perfect for enjoying Toledo before and after the wedding, with everything on your doorstep.</p>
+        <a href="https://maps.google.com/?q=Hotel+Carlos+V+Toledo" target="_blank" rel="noopener" class="link"><span data-lang="es">Ver hotel</span><span data-lang="en">View hotel</span><svg class="icon"><use href="#i-out"/></svg></a>
       </article>
     </div>
+
+    <h3 class="hotels-more reveal"><span data-lang="es">Otras opciones</span><span data-lang="en">More options</span></h3>
+    <div class="hotels-alt reveal">
+      <article class="hotel-mini">
+        <h4>Hotel Santa Isabel</h4>
+        <p data-lang="es">Sencillo y asequible, junto a la catedral.</p>
+        <p data-lang="en">Simple and affordable, by the cathedral.</p>
+        <a href="https://hotelsantaisabeltoledo.es" target="_blank" rel="noopener" class="link"><span data-lang="es">Web</span><span data-lang="en">Website</span><svg class="icon"><use href="#i-out"/></svg></a>
+      </article>
+      <article class="hotel-mini">
+        <h4>Hotel Abad Toledo</h4>
+        <p data-lang="es">Hotel boutique junto a la Puerta de Bisagra.</p>
+        <p data-lang="en">Boutique hotel by the Puerta de Bisagra.</p>
+        <a href="https://www.hotelabad.com" target="_blank" rel="noopener" class="link"><span data-lang="es">Web</span><span data-lang="en">Website</span><svg class="icon"><use href="#i-out"/></svg></a>
+      </article>
+      <article class="hotel-mini">
+        <h4>Sercotel Toledo Renacimiento</h4>
+        <p data-lang="es">Moderno, junto a la Puerta de Bisagra y cerca de la estación.</p>
+        <p data-lang="en">Modern, by the Puerta de Bisagra and close to the station.</p>
+        <a href="https://www.sercotelhoteles.com/es/hotel-toledo-renacimiento" target="_blank" rel="noopener" class="link"><span data-lang="es">Web</span><span data-lang="en">Website</span><svg class="icon"><use href="#i-out"/></svg></a>
+      </article>
+    </div>
+
+    <p class="note reveal">
+      <span data-lang="es">¿Os alojáis junto a la Puerta de Bisagra? Las escaleras mecánicas de Recaredo os suben al casco histórico sin esfuerzo. Y si venís con tiempo, en <a href="https://turismo.toledo.es" target="_blank" rel="noopener">turismo.toledo.es</a> tenéis ideas de qué ver, y con la <a href="https://toledomonumental.com" target="_blank" rel="noopener">pulsera turística</a> podéis visitar varios monumentos con una sola entrada.</span>
+      <span data-lang="en">Staying near the Puerta de Bisagra? The Recaredo escalators take you up to the old town effortlessly. If you have extra time, <a href="https://turismo.toledo.es" target="_blank" rel="noopener">turismo.toledo.es</a> has plenty of ideas, and the <a href="https://toledomonumental.com" target="_blank" rel="noopener">tourist wristband</a> gets you into several monuments with a single ticket.</span>
+    </p>
   </div>
 </section>
 
@@ -960,6 +1052,14 @@ html[lang="en"] [data-lang="es"]{display:none!important}
     updateCalendarLink();
   }
   $$("[data-set-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.setLang)));
+
+  // ── Copiar código de descuento ────────────────
+  $$("[data-copy]").forEach(b=>b.addEventListener("click",async()=>{
+    try{await navigator.clipboard.writeText(b.dataset.copy)}catch(e){return}
+    const html=b.innerHTML;
+    b.classList.add("done"); b.textContent=t("¡Copiado!","Copied!");
+    setTimeout(()=>{b.classList.remove("done"); b.innerHTML=html},1800);
+  }));
 
   // ── Navegación ────────────────────────────────
   const nav=$(".nav"), burger=$(".nav-burger");
