@@ -364,27 +364,6 @@ html[lang="en"] [data-lang="es"]{display:none!important}
 }
 .note::before{content:"";flex-shrink:0;width:2px;align-self:stretch;background:var(--gold)}
 
-/* ── FAQ ── */
-.faq{background:var(--ivory)}
-.faq-list{border-top:1px solid var(--line)}
-.faq-item{border-bottom:1px solid var(--line)}
-.faq-item summary{
-  list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;
-  padding:26px 4px;font-family:var(--ff-serif);font-size:21px;font-weight:400;line-height:1.35;transition:color .25s;
-}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary:hover{color:var(--rose-ink)}
-.faq-plus{position:relative;width:14px;height:14px;flex-shrink:0;color:var(--rose-ink)}
-.faq-plus::before,.faq-plus::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:currentColor;transition:transform .4s var(--ease)}
-.faq-plus::after{transform:rotate(90deg)}
-.faq-item[open] .faq-plus::after{transform:rotate(0)}
-.faq-a{padding:0 48px 28px 4px;color:var(--muted);font-size:15px}
-@supports (interpolate-size:allow-keywords){
-  :root{interpolate-size:allow-keywords}
-  .faq-item::details-content{block-size:0;overflow:hidden;transition:block-size .5s var(--ease),content-visibility .5s allow-discrete}
-  .faq-item[open]::details-content{block-size:auto}
-}
-
 /* ── Música ── */
 .music{background:var(--cream)}
 .panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:44px;margin-bottom:40px;box-shadow:0 24px 60px -40px rgba(47,58,45,.25)}
@@ -440,6 +419,27 @@ html[lang="en"] [data-lang="es"]{display:none!important}
 .vote[aria-pressed="true"] .icon{fill:currentColor}
 .vote.pop{animation:pop .45s var(--ease)}
 @keyframes pop{40%{transform:scale(1.18)}}
+ 
+/* ── FAQ ── */
+.faq{background:var(--ivory)}
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item summary{
+  list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;
+  padding:26px 4px;font-family:var(--ff-serif);font-size:21px;font-weight:400;line-height:1.35;transition:color .25s;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{color:var(--rose-ink)}
+.faq-plus{position:relative;width:14px;height:14px;flex-shrink:0;color:var(--rose-ink)}
+.faq-plus::before,.faq-plus::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:currentColor;transition:transform .4s var(--ease)}
+.faq-plus::after{transform:rotate(90deg)}
+.faq-item[open] .faq-plus::after{transform:rotate(0)}
+.faq-a{padding:0 48px 28px 4px;color:var(--muted);font-size:15px}
+@supports (interpolate-size:allow-keywords){
+  :root{interpolate-size:allow-keywords}
+  .faq-item::details-content{block-size:0;overflow:hidden;transition:block-size .5s var(--ease),content-visibility .5s allow-discrete}
+  .faq-item[open]::details-content{block-size:auto}
+}
 
 /* ── RSVP ── */
 .rsvp{
