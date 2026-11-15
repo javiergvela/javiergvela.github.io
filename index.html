@@ -827,7 +827,49 @@ html[lang="en"] [data-lang="es"]{display:none!important}
   </div>
 </section>
 
-<!-- V · FAQ -->
+<!-- V · MÚSICA -->
+<section class="section music" id="music">
+  <div class="container narrow">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="num">VI</span><span data-lang="es">Sugerencias musicales</span><span data-lang="en">Music requests</span></p>
+      <h2 class="section-title"><span data-lang="es">¿Qué temazo <em>no puede faltar?</em></span><span data-lang="en">What song gets you <em>dancing?</em></span></h2>
+      <svg class="ornament" aria-hidden="true"><use href="#ornament"/></svg>
+      <p class="lead" data-lang="es">¡Queremos que también seáis parte de la fiesta! Ayúdanos a crear la playlist perfecta y vota tus favoritas.</p>
+      <p class="lead" data-lang="en">We want you to be part of the party too! Help us build the perfect playlist and vote for your favourites.</p>
+    </header>
+
+    <form class="panel reveal" id="song-form" novalidate autocomplete="off">
+      <div class="field">
+        <label for="inp-name"><span data-lang="es">Tu nombre</span><span data-lang="en">Your name</span></label>
+        <input id="inp-name" type="text" maxlength="60" data-ph-es="Ej. María García" data-ph-en="e.g. Emma Smith">
+      </div>
+      <div class="field">
+        <label for="inp-search"><span data-lang="es">Busca una canción o artista</span><span data-lang="en">Search a song or artist</span></label>
+        <div class="ac-wrap">
+          <input id="inp-search" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ac-list"
+                 data-ph-es="Ej. Rosalía, Despechá…" data-ph-en="e.g. ABBA, Dancing Queen…">
+          <ul id="ac-list" class="ac-list" role="listbox"></ul>
+        </div>
+      </div>
+      <div class="selected-song" id="selected-song" hidden>
+        <svg class="icon"><use href="#i-note"/></svg>
+        <div class="track"><span class="track-title" id="sel-title"></span><span class="track-artist" id="sel-artist"></span></div>
+        <button type="button" id="sel-clear" aria-label="Quitar">×</button>
+      </div>
+      <p class="form-msg" id="song-msg" role="status" hidden></p>
+      <button class="btn btn-dark" id="song-submit" type="submit">
+        <svg class="icon"><use href="#i-note"/></svg><span data-lang="es">Añadir a la playlist</span><span data-lang="en">Add to playlist</span>
+      </button>
+    </form>
+
+    <div id="song-ranking" hidden>
+      <div class="songs-head"><span><span data-lang="es">Ranking de canciones</span><span data-lang="en">Song ranking</span></span><span class="count" id="song-count"></span></div>
+      <ol class="songs" id="song-list"></ol>
+    </div>
+  </div>
+</section>
+  
+<!-- VI · FAQ -->
 <section class="section faq" id="faq">
   <div class="container narrow">
     <header class="section-head reveal">
@@ -871,48 +913,6 @@ html[lang="en"] [data-lang="es"]{display:none!important}
           <p data-lang="en">Your presence is the greatest gift. If you'd like to contribute something, we'll share the details by email and in the printed invitation.</p>
         </div>
       </details>
-    </div>
-  </div>
-</section>
-
-<!-- VI · MÚSICA -->
-<section class="section music" id="music">
-  <div class="container narrow">
-    <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">VI</span><span data-lang="es">Sugerencias musicales</span><span data-lang="en">Music requests</span></p>
-      <h2 class="section-title"><span data-lang="es">¿Qué temazo <em>no puede faltar?</em></span><span data-lang="en">What song gets you <em>dancing?</em></span></h2>
-      <svg class="ornament" aria-hidden="true"><use href="#ornament"/></svg>
-      <p class="lead" data-lang="es">¡Queremos que también seáis parte de la fiesta! Ayúdanos a crear la playlist perfecta y vota tus favoritas.</p>
-      <p class="lead" data-lang="en">We want you to be part of the party too! Help us build the perfect playlist and vote for your favourites.</p>
-    </header>
-
-    <form class="panel reveal" id="song-form" novalidate autocomplete="off">
-      <div class="field">
-        <label for="inp-name"><span data-lang="es">Tu nombre</span><span data-lang="en">Your name</span></label>
-        <input id="inp-name" type="text" maxlength="60" data-ph-es="Ej. María García" data-ph-en="e.g. Emma Smith">
-      </div>
-      <div class="field">
-        <label for="inp-search"><span data-lang="es">Busca una canción o artista</span><span data-lang="en">Search a song or artist</span></label>
-        <div class="ac-wrap">
-          <input id="inp-search" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ac-list"
-                 data-ph-es="Ej. Rosalía, Despechá…" data-ph-en="e.g. ABBA, Dancing Queen…">
-          <ul id="ac-list" class="ac-list" role="listbox"></ul>
-        </div>
-      </div>
-      <div class="selected-song" id="selected-song" hidden>
-        <svg class="icon"><use href="#i-note"/></svg>
-        <div class="track"><span class="track-title" id="sel-title"></span><span class="track-artist" id="sel-artist"></span></div>
-        <button type="button" id="sel-clear" aria-label="Quitar">×</button>
-      </div>
-      <p class="form-msg" id="song-msg" role="status" hidden></p>
-      <button class="btn btn-dark" id="song-submit" type="submit">
-        <svg class="icon"><use href="#i-note"/></svg><span data-lang="es">Añadir a la playlist</span><span data-lang="en">Add to playlist</span>
-      </button>
-    </form>
-
-    <div id="song-ranking" hidden>
-      <div class="songs-head"><span><span data-lang="es">Ranking de canciones</span><span data-lang="en">Song ranking</span></span><span class="count" id="song-count"></span></div>
-      <ol class="songs" id="song-list"></ol>
     </div>
   </div>
 </section>
